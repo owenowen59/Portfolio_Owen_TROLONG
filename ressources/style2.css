@@ -1,0 +1,37 @@
+/* Style pour l'écran de chargement */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #007FFF; /* Bleu azur */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    color: white; /* Texte blanc pour contraster */
+  }
+  
+  /* Style pour le spinner */
+  .spinner {
+    border: 6px solid #e0f7ff; /* Couleur claire pour le spinner */
+    border-top: 6px solid #004a7c; /* Couleur plus foncée pour l'effet */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Animation du spinner */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Style pour masquer le contenu principal jusqu'au chargement */
+  #portfolio {
+    display: none;
+  }
+  
