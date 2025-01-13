@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-/* Fonctionnalités de Progres Bar */ 
+
 
 window.addEventListener('DOMContentLoaded', (event) => {
     const progressBars = document.querySelectorAll('.progress');
@@ -68,14 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btn1 && btn2 && content1 && content2) {
         content1.classList.add('active');
-        btn1.classList.add('active-btn'); // Initialiser le bouton1 comme actif
+        btn1.classList.add('active-btn'); 
 
         btn1.addEventListener('click', () => {
             if (!content1.classList.contains('active')) {
                 content1.classList.add('active');
                 content2.classList.remove('active');
-                btn1.classList.add('active-btn'); // Mettre à jour la couleur du bouton1
-                btn2.classList.remove('active-btn'); // Réinitialiser le bouton2
+                btn1.classList.add('active-btn'); 
+                btn2.classList.remove('active-btn'); 
             }
         });
 
@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!content2.classList.contains('active')) {
                 content2.classList.add('active');
                 content1.classList.remove('active');
-                btn2.classList.add('active-btn'); // Mettre à jour la couleur du bouton2
-                btn1.classList.remove('active-btn'); // Réinitialiser le bouton1
+                btn2.classList.add('active-btn'); 
+                btn1.classList.remove('active-btn'); 
             }
         });
     } else {
@@ -94,59 +94,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// Fonction pour afficher le modal avec les informations du projet
+
 function showModal(projectId) {
     const modal = document.getElementById("projectModal");
     const modalTitle = document.getElementById("modalTitle");
     const modalImage = document.getElementById("modalImage");
     const modalDescription = document.getElementById("modalDescription");
     
-    // Remplir les informations du modal selon le projet sélectionné
+    
     if (projectId === 'projet1') {
         modalTitle.textContent = "Mockup Maison édition";
         modalImage.src = "images/Mockup 1ere couverture livre sensorielle.png";
-        modalDescription.textContent = "Description détaillée du projet 1...";
+        modalDescription.textContent = "Dans le cadre d'un cours de gestion de projet, nous avons dû mettre en place une communication et des créations d'ouvrages, notre cible était un public jeune entre 3 à 6 ans, voici un mockup pour un livre sensoriel.";
     } else if (projectId === 'projet2') {
         modalTitle.textContent = "Mystère façon hitchicock";
         modalImage.src = "images/TROLONG_Owen_MYSTÈRE version2.jpg";
-        modalDescription.textContent = "Description détaillée du projet 2...";
+        modalDescription.textContent = "Création d'une affiche avec 5 photos dans le cadre d'un cours, cette affiche avait pour thème 'Mystère à la manière d'Hitchcock'.";
     } else if (projectId === 'projet3') {
         modalTitle.textContent = "Miroir Musée d'art Moderne (Paris)";
         modalImage.src = "images/TROLONG_Owen_2_modifiée.jpg";
-        modalDescription.textContent = "Description détaillée du projet 3...";
+        modalDescription.textContent = "Création d'une affiche avec pour thème 'Miroir' pour le Musée d'Art Moderne à Paris dans le cadre un cours";
     } else if (projectId === 'projet4') {
         modalTitle.textContent = "Logo Association";
         modalImage.src = "images/Logo 2.png";
-        modalDescription.textContent = "Description détaillée du projet 4...";
+        modalDescription.textContent = "Création d'un logo pour une association où l'on a coopéré avec eux lors d'une SAE pendant plusieurs mois, ce logo fait parti de l'un des logos que l'on a proposé à l'association.";
     } else if (projectId === 'projet5') {
         modalTitle.textContent = "Tournoi d'Échecs 2024";
         modalImage.src = "images/Affiche de tournoi.jpg";
-        modalDescription.textContent = "Description détaillée du projet 5...";
+        modalDescription.textContent = "Création d'une affiche pour l'annonce du tournoi interne de fin d'année 2024 du club MAT88 publiée sur Facebook.";
     } else if (projectId === 'projet6') {
         modalTitle.textContent = "Échecs, Stage 2024";
         modalImage.src = "images/Affiche Stage.png";
-        modalDescription.textContent = "Description détaillée du projet 6...";
+        modalDescription.textContent = "Création d'une affiche pour annoncer un stage d'échecs pour le club MAT88 mais ce stage n'a pas pu avoir lieu.";
     } else if (projectId === 'projet7') {
         modalTitle.textContent = "2024, Pendaison Échecs";
         modalImage.src = "images/Pendaison.jpg";
-        modalDescription.textContent = "Description détaillée du projet 7...";
+        modalDescription.textContent = "Affiche permettant d'annoncer la pendaison au groupe Facebook du club et celui du cdje59 pour l'annonce de changement de salle du club MAT88.";
     } else if (projectId === 'projet8') {
         modalTitle.textContent = "Création du logo personnel";
         modalImage.src = "images/Logo ot.png";
-        modalDescription.textContent = "Description détaillée du projet 8...";
+        modalDescription.textContent = "Ce logo permet de me définir dans un style assez simple avec deux couleurs qui sont le noir pour le côté sobre et or pour le côté luxueux du logo.";
     }
     
-    // Afficher le modal
+   
     modal.style.display = "block";
 }
 
-// Fonction pour fermer le modal
+
 function closeModal() {
     const modal = document.getElementById("projectModal");
     modal.style.display = "none";
 }
 
-// Fermeture du modal en cliquant en dehors de la fenêtre
+
 window.onclick = function(event) {
     const modal = document.getElementById("projectModal");
     if (event.target === modal) {
@@ -155,3 +155,64 @@ window.onclick = function(event) {
 };
 
 
+
+function clearHighlights() {
+    const marks = document.querySelectorAll('mark'); 
+    marks.forEach(mark => {
+        const parent = mark.parentNode; 
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+    });
+}
+
+
+function highlightWord(element, word) {
+    const regex = new RegExp(`(${word})`, 'gi'); 
+
+    
+    element.childNodes.forEach(child => {
+        if (child.nodeType === Node.TEXT_NODE) {
+            const text = child.nodeValue; 
+            const highlightedText = text.replace(regex, '<mark>$1</mark>'); 
+
+            
+            if (highlightedText !== text) {
+                const tempElement = document.createElement('span'); 
+                tempElement.innerHTML = highlightedText; 
+                element.replaceChild(tempElement, child); 
+                Array.from(tempElement.childNodes).forEach(newNode => element.insertBefore(newNode, tempElement)); 
+                element.removeChild(tempElement); 
+            }
+        } else if (child.nodeType === Node.ELEMENT_NODE) { 
+            highlightWord(child, word);
+        }
+    });
+}
+
+
+const searchInput = document.querySelector('.recherche');
+const sections = document.querySelectorAll('section');
+
+if (searchInput) {
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.trim(); 
+        clearHighlights(); 
+        if (!searchTerm) return; 
+
+        let found = false;
+
+        
+        sections.forEach(section => {
+            if (section.textContent.toLowerCase().includes(searchTerm.toLowerCase())) {
+                highlightWord(section, searchTerm); 
+                if (!found) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'center' });  
+                    found = true;
+                }
+            }
+        });
+
+        if (!found) {
+            alert(`Le mot "${searchTerm}" n'a pas été trouvé.`);
+        }
+    });
+}
