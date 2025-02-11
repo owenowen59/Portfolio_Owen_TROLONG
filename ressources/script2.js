@@ -1,9 +1,9 @@
-/*document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const loadingScreen = document.getElementById("loading-screen");
     const portfolio = document.getElementById("portfolio");
   
     // Minimum durée de l'écran de chargement (3 secondes)
-    const minLoadingTime = 3000;
+    const minLoadingTime = 0;
     const startTime = Date.now();
   
     // Vérifie quand la page est complètement chargée
@@ -17,5 +17,5 @@
         portfolio.style.display = "block";
       }, remainingTime);
     };
-  });*/
+  });
   
