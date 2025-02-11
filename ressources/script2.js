@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
     const loadingScreen = document.getElementById("loading-screen");
     const portfolio = document.getElementById("portfolio");
   
@@ -17,5 +17,5 @@ document.addEventListener("DOMContentLoaded", () => {
         portfolio.style.display = "block";
       }, remainingTime);
     };
-  });
+  });*/
   
