@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeuse Saint-Valentin ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffdde1;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+            text-align: center;
+        }
+        .first{
+            height:100%;
+        }
+        .message {
+            font-size: 24px;
+            color: #d63384;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+            z-index: 2;
+            margin-top: 20px;
+        }
+        .heart {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transform: rotate(-45deg);
+            margin-top: -50px;
+            animation: explode 1.5s ease-out forwards;
+        }
+        .heart::before, .heart::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+        @keyframes explode {
+            0% { transform: scale(1) rotate(-45deg); opacity: 1; }
+            100% { transform: scale(15) rotate(-45deg); opacity: 0; }
+        }
+        .small-heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(-45deg);
+            opacity: 0.8;
+            animation: floatUp 1.5s ease-out forwards;
+        }
+        .small-heart::before, .small-heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .small-heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .small-heart::after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-200px) scale(0.5); opacity: 0; }
+        }
+        .content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            margin-top: 50px;
+            width: 80%;
+            max-width: 600px;
+        }
+        .content img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .tiktok-link {
+            font-size: 18px;
+            color: #1e90ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="first">
+    <div class="message">Joyeuse Saint-Valentin Princesse ❤️</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            document.body.appendChild(heart);
+
+            // Générer les petits cœurs qui s'éparpillent
+            setTimeout(() => {
+                for (let i = 0; i < 30; i++) {
+                    let smallHeart = document.createElement("div");
+                    smallHeart.className = "small-heart";
+                    smallHeart.style.left = `${50 + Math.random() * 100 - 50}%`;
+                    smallHeart.style.top = `${50 + Math.random() * 100 - 50}%`;
+                    document.body.appendChild(smallHeart);
+                    setTimeout(() => smallHeart.remove(), 2000);
+                }
+
+                // Retirer le grand cœur
+                heart.remove();
+
+                // Afficher le message après l'animation
+                document.querySelector(".message").style.opacity = 1;
+
+                // Permettre le défilement après l'animation
+                document.body.style.overflow = 'auto';
+            }, 1500);
+        });
+    
+    </script>
+    </div>
+    <div class="content">
+        <h2>Une histoire à partager</h2>
+        <p>Tu es la personne la plus incroyable que j'aie rencontrée. Depuis ces 42 jours à discuter ensemble, je me rends compte à quel point chaque moment passé à te parler est précieux. On s'est rencontrés sur Snap, et depuis, chaque jour me donne une nouvelle raison de sourire.</p>
+        <img src="https://via.placeholder.com/600x400/FFB6C1/FFFFFF?text=Films+romantiques" alt="Films Romantiques">
+        <p>Tu m'as parlé de ton amour pour les films romantiques. J'imagine déjà nos soirées à regarder des films et à rêver ensemble de tout ce que la vie peut nous offrir.</p>
+        <img src="https://via.placeholder.com/600x400/FFB6C1/FFFFFF?text=Italie" alt="Italie">
+        <p>Tu rêves d'aller en Italie, et je sais que c'est un endroit magique. J'ai hâte de voyager avec toi et de découvrir ce pays merveilleux, main dans la main.</p>
+        <img src="https://via.placeholder.com/600x400/FFB6C1/FFFFFF?text=Roses" alt="Roses">
+        <p>Les roses, symboles de l'amour, sont aussi une de tes grandes passions. Un jour, je te promets de t'offrir une boîte de LEGO avec des roses, comme tu le souhaites. Chaque pièce construira notre bonheur.</p>
+        <p>Mais plus que tout, tu es magnifique. À l'intérieur comme à l'extérieur. Et chaque jour, je suis reconnaissant de t'avoir rencontrée.</p>
+        <p>Regarde ce que j'ai trouvé pour toi, un petit moment spécial sur TikTok : <a href="https://vm.tiktok.com/ZNeo3mTRQ/" class="tiktok-link" target="_blank">Mon cadeau pour toi</a></p>
+    </div>
+</body>
+</html>
