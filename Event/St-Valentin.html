@@ -11,25 +11,32 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100%;
+            width: 100%;
             background-color: #ffdde1;
             overflow: hidden;
             font-family: 'Arial', sans-serif;
             flex-direction: column;
             text-align: center;
         }
-        .first{
-            height:100%;
+        #first{
+            height:100vh;
+            width:100vh;
         }
         .message {
-            font-size: 24px;
+            font-size: 4vw;
             color: #d63384;
             font-weight: bold;
             opacity: 0;
             transition: opacity 1s ease-in-out;
-            position: absolute;
-            z-index: 2;
-            margin-top: 20px;
+            height: 100vh;
+            width: 100vh;
+	        display: flex;
+	        flex-direction: column;
+	        flex-wrap: nowrap;
+	        justify-content: center;
+	        align-items: stretch;
+	        align-content: stretch;
         }
         .heart {
             position: absolute;
@@ -89,7 +96,23 @@
             0% { transform: translateY(0) scale(1); opacity: 1; }
             100% { transform: translateY(-200px) scale(0.5); opacity: 0; }
         }
-        .content {
+        .highlight {
+            color: #e63946;
+            font-weight: bold;
+        }
+        .rainbow-text {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 2s linear infinite;
+        }
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        #content {
             padding: 20px;
             background-color: white;
             border-radius: 10px;
@@ -97,7 +120,7 @@
             width: 80%;
             max-width: 600px;
         }
-        .content img {
+        #content img {
             width: 100%;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -111,11 +134,11 @@
     </style>
 </head>
 <body>
-    <div class="first">
+    <section id="first">
     <div class="message">Joyeuse Saint-Valentin Princesse ❤️</div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            let heart = document.createElement("div");
+            let heart = document.createElement("section");
             heart.className = "heart";
             document.body.appendChild(heart);
 
@@ -142,18 +165,61 @@
         });
     
     </script>
-    </div>
-    <div class="content">
+    </section>
+    <section id="content">
+        <div id="audiomusic"></div>
+        <audio id="myAudio" autoplay loop>
+            <source src="Stvalentin.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var audio = document.getElementById("myAudio");
+                audio.play().catch(error => {
+                    let btn = document.createElement("button");
+                    btn.innerText = "🎵 Activer la musique";
+                    btn.style.fontSize = "20px";
+                    btn.style.padding = "10px";
+                    btn.onclick = () => {
+                        audio.play();
+                        btn.remove();
+                    };
+                    document.getElementById("audiomusic").appendChild(btn);  // Correction ici
+                });
+            });
+        </script>
         <h2>Une histoire à partager</h2>
-        <p>Tu es la personne la plus incroyable que j'aie rencontrée. Depuis ces 42 jours à discuter ensemble, je me rends compte à quel point chaque moment passé à te parler est précieux. On s'est rencontrés sur Snap, et depuis, chaque jour me donne une nouvelle raison de sourire.</p>
-        <img src="https://via.placeholder.com/600x400/FFB6C1/FFFFFF?text=Films+romantiques" alt="Films Romantiques">
-        <p>Tu m'as parlé de ton amour pour les films romantiques. J'imagine déjà nos soirées à regarder des films et à rêver ensemble de tout ce que la vie peut nous offrir.</p>
-        <img src="https://via.placeholder.com/600x400/FFB6C1/FFFFFF?text=Italie" alt="Italie">
-        <p>Tu rêves d'aller en Italie, et je sais que c'est un endroit magique. J'ai hâte de voyager avec toi et de découvrir ce pays merveilleux, main dans la main.</p>
-        <img src="https://via.placeholder.com/600x400/FFB6C1/FFFFFF?text=Roses" alt="Roses">
-        <p>Les roses, symboles de l'amour, sont aussi une de tes grandes passions. Un jour, je te promets de t'offrir une boîte de LEGO avec des roses, comme tu le souhaites. Chaque pièce construira notre bonheur.</p>
-        <p>Mais plus que tout, tu es magnifique. À l'intérieur comme à l'extérieur. Et chaque jour, je suis reconnaissant de t'avoir rencontrée.</p>
-        <p>Regarde ce que j'ai trouvé pour toi, un petit moment spécial sur TikTok : <a href="https://vm.tiktok.com/ZNeo3mTRQ/" class="tiktok-link" target="_blank">Mon cadeau pour toi</a></p>
-    </div>
+        <p>Tu es la personne la plus <span class="highlight">incroyable</span> que j'aie rencontrée. Depuis ces 42 jours à discuter ensemble, je réalise à quel point chaque moment passé à te parler est <span class="highlight">précieux</span>. Comme l’Ambre, tu es une lumière <span class="highlight">douce</span> et <span class="highlight">chaleureuse</span> dans ma vie, un éclat doré qui illumine mes journées.</p>
+        <p>On s'est rencontrés sur Snap, et depuis, chaque jour m’apporte une nouvelle raison de sourire.</p>
+        
+        <img src="https://tr.web.img2.acsta.net/c_640_360/img/0c/1a/0c1aa5a7625a0fbc1117edb2f10a9af2.jpg" alt="Films Romantiques" style="
+            width: 80vw;
+            height: auto;
+            max-width: 600px;
+    ">
+        <p>Tu m’as parlé de ton amour pour les <span class="highlight">films romantiques</span>. J’imagine déjà nos soirées à rêver ensemble, bercés par des histoires d’amour aussi intemporelles que la beauté de l’ambre, cette résine fossile qui renferme les souvenirs d’un autre temps.</p>
+        
+        <img src="https://www.voyagetips.com/wp-content/uploads/2017/06/rome-italie-840x560.jpg" alt="Italie" style="
+            width: 80vw;
+            height: auto;
+            max-width: 600px;
+    ">
+        <p>Tu rêves d’aller en <span class="highlight">Italie</span>, ce pays riche d’histoire et de lumière. Comme l’ambre qui traverse les âges en conservant sa splendeur, je veux que notre amour grandisse et s’imprègne des merveilles du monde. Marcher à tes côtés dans les ruelles de Rome ou au bord de la mer, main dans la main, serait un rêve devenu réalité.</p>
+        
+        <img src="https://static.fnac-static.com/multimedia/Images/FR/MDM/c7/b1/55/22393287/1540-1/tsp20250129082141/LEGO-Iconic-40460-Les-roses.jpg" alt="Roses" style="
+            width: 80vw;
+            height: auto;
+            max-width: 600px;
+    ">
+        <p>Les roses, symboles d’amour et de passion, sont l’une de tes grandes passions. Un jour, je t’offrirai cette boîte de LEGO avec des roses, et chaque pièce que nous assemblerons sera comme un souvenir précieux, scellé dans le temps, comme l’ambre qui conserve la beauté de ce qu’il renferme.</p>
+        
+        <p>Mais plus que tout, tu es magnifique, à l’intérieur comme à l’extérieur. Tu es cette lumière, cette chaleur réconfortante, cette protection douce et précieuse. Et chaque jour, je suis reconnaissant de t’avoir rencontrée.</p>
+        
+        <p>Regarde ce que j’ai trouvé pour toi, un petit moment spécial sur TikTok : <a href="https://vm.tiktok.com/ZNeo3mTRQ/" class="tiktok-link" target="_blank">Mon cadeau pour toi</a></p>
+    
+    </section>
+    <h3>Signé ton <span class="rainbow-text">chouchou </span>🥰</h3>
+    
 </body>
 </html>
+
+
