@@ -1,234 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/Logo ot.png">
     <title>Portfolio TROLONG Owen</title>
+    <link rel="stylesheet" href="style3.css">
     <link rel="stylesheet" href="ressources/style.css">
     <link rel="stylesheet" href="ressources/style2.css">
-    <script src="ressources/script.js"></script>
     <script src="ressources/script2.js"></script>
+    <script src="ressources/script.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    
+
 
 </head>
 <body>
-    
-    <!--<div id="loading-screen">
+    <div id="loading-screen">
         <div class="spinner"></div>
-        <p>Chargement...</p>
+        <p></p>
     </div>
-    <div id="portfolio" style="display: none;">-->
-    <button id="scrollToTopBtn" title="Retour en haut">&#8593;</button>
-
-    <nav class="barnav">
-        <h3>TROLONG Owen</h3>
-        <!--
-        <form>
-            <input id="searchBar" class="recherche" type="search" placeholder="Besoin d'une information.">
-        </form>
-        -->
-        <ul class="navigation">
-            <li>
-                <a href="#Accueil">
-                    <div class="link">
-                        <i class='bx bx-home-alt-2'></i>
-                        <span>Accueil</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#Moi">
-                    <div class="link">
-                        <i class='bx bxs-user-detail'></i>
-                        <span>A propos</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#Projets">
-                    <div class="link">
-                        <i class='bx bx-palette'></i>
-                        <span>Projets</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#Contact">
-                    <div class="link">
-                        <i class='bx bxs-contact'></i>
-                        <span>Contact</span>
-                    </div>
-                </a>
-            </li>
-
-        </ul>
-    </nav>
-
-    <section id="Accueil">
-        <div class="infosp">
-            <img src="images/Photo_Owen.jpg" class="PP" alt="Photo de Owen">
-            <p>Étudiant en BUT Métiers du Multimédia et de l'Internet<br>Parcours Web</p>
-        </div>
-        <div class="area" >
-            <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-        </div >
-    </section>
-
-
-    <section id="Moi">
-        <div class="presentation-container">
-            <div class="bio-text">
-                <h2>Qui suis-je ?</h2>
-                <p>
-                    Passionné par le numérique et plus particulièrement par le <strong>développement web</strong>, 
-                    je considère chaque projet comme un moyen d’expression. 
-                    Créer des sites web, 
-                    optimiser leur performance et concevoir des interfaces accessibles et intuitives sont au cœur de mes ambitions professionnelles.
-                </p>
-                <p>
-                    En parallèle, 
-                    mes expériences en <strong>athlétisme</strong> et aux <strong>échecs</strong> ont renforcé ma rigueur, 
-                    ma persévérance et mes capacités stratégiques, des atouts précieux dans la gestion de projets web complexes. 
-                    Curieux et passionné par le monde qui nous entoure, je souhaite allier ma soif de découverte à ma pratique du développement web. 
-                </p>
-                <p>
-                    Cette combinaison entre exploration culturelle et innovation numérique m’enthousiasme profondément. 
-                    Mobile, 
-                    flexible et toujours prêt à relever de nouveaux défis, 
-                    je rêve de collaborer sur des <strong>projets internationaux</strong> qui me permettront d'explorer de nouvelles perspectives tout en enrichissant mes compétences.
-                </p>
-            </div>
-            <div class="bio-images">
-                <img src="images/owenathle2.jpg" class="bio-image" alt="Moi en athlétisme">
-                <img src="images/Owenechecs.jpg" class="bio-image" alt="Moi jouant aux échecs">
-            </div>
-        </div>
-    </section>
-
-    <section id="hard-skills">
-        <h2>Hard Skills</h2>
-        <div class="skill-container">
-            <div class="skill">
-                <label for="html"><i class='bx bxl-html5' ></i> HTML</label>
-                <div class="progress-bar">
-                    <div class="progress html" id="html" data-skill="80"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <label for="css"><i class='bx bxl-css3' ></i> CSS</label>
-                <div class="progress-bar">
-                    <div class="progress css" id="css" data-skill="60"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <label for="javascript"><i class='bx bxl-javascript'></i> JavaScript </label>
-                <div class="progress-bar">
-                    <div class="progress javascript" id="javascript" data-skill="70"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <label for="php"><i class='bx bxl-php' ></i> Php</label>
-                <div class="progress-bar">
-                    <div class="progress php" id="php" data-skill="90"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <label for="figma"><i class='bx bxl-figma'></i> Figma</label>
-                <div class="progress-bar">
-                    <div class="progress figma" id="figma" data-skill="70"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <label for="canva"><i class='bx bxl-adobe'></i> Adobe</label>
-                <div class="progress-bar">
-                    <div class="progress canva" id="canva" data-skill="60"></div>
-                </div>
-            </div>
-        </div>
-            <br>
-        <div class="langue">
-            <h2>Langues</h2>
-            <div class="skill-language">
-                <div class="alwayslanguages">
-                    <label for="francais"><i class='bx bxs-flag-alt'></i> Français : </label>
-                    <h4>Natif</h4>
-                </div>
-                <div class="alwayslanguages">
-                    <label for="anglais"><i class='bx bxs-flag'></i> Anglais : </label>
-                    <h4>B1</h4>
-                </div>
-                <div class="alwayslanguages">
-                    <label for="espagnol"><i class='bx bxs-flag'></i> Espagnol</label>
-                    <h4>Notions</h4>
-                </div>
-            </div>
-        </div>
-            
-
-        
-        
-        
-    </section>
-
-    <section id="Projets">
-        <h1>Mes Projets</h1>
-        <button id="univ">Réalisations Académiques</button>
-        <button id="perso">Réalisations Personnelles</button>
-        <ul id="creauniv" class="rprojets active">
-            <li data-title="Mockup Maison édition" onclick="showModal('projet1')"><img src="images/Mockup 1ere couverture livre sensorielle.png" alt="Image projet"></li>
-            <li data-title="Mystère façon hitchicock" onclick="showModal('projet2')"><img src="images/TROLONG_Owen_MYSTÈRE version2.jpg" alt="Image projet"></li>
-            <li data-title="Miroir Musée d'art Moderne (Paris)" onclick="showModal('projet3')"><img src="images/TROLONG_Owen_2_modifiée.jpg" alt="Image projet"></li>
-            <li data-title="Logo Association" onclick="showModal('projet4')"><img src="images/Logo 2.png" alt="Image projet"></li>
-            
-        </ul>
-        <ul id="creaperso" class="rprojets">
-            <li data-title="Tournoi d'Échecs 2024" onclick="showModal('projet5')"><img src="images/Affiche de tournoi.jpg" alt="Image projet"></li>
-            <li data-title="Échecs, Stage 2024" onclick="showModal('projet6')"><img src="images/Affiche Stage.png" alt="Image projet"></li>
-            <li data-title="2024, Pendaison Échecs " onclick="showModal('projet7')"><img src="images/Pendaison.jpg" alt="Image projet"></li>
-            <li data-title="Création du logo personnel" onclick="showModal('projet8')"><img src="images/Logo ot.png" alt="Image projet"></li>
-        </ul>
-    </section>
-
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Titre du Projet</h2>
-            <img id="modalImage" src="#" alt="Image du projet">
-            <p id="modalDescription">Description du projet...</p>
-            <!--<a href="#" id="modalLink" target="_blank">Voir le projet</a>-->
+    <div id="portfolio" style="display: none;">
+        <h1>TROLONG Owen</h1>
+        <div>
+            <a href="index.html"></a>
         </div>
     </div>
-    
-    <footer id="Contact">
-        <h1>Contactez-Moi</h1>
-        <ul>
-            
-            <li><button onclick="window.location.href='TROLONG OWEN - CV.pdf';" class="button-link">Voir mon CV Papier<br></button></li>
-            <li><button onclick="window.location.href='#';" class="button-link">Voir mon CV Vidéo<br>(Bientôt disponible)</button></li>
-        </ul>
-        <ul>
-            <li><i class='bx bxl-gmail'></i> owen.trolong@gmail.com</li>
-            <li><a href="https://www.linkedin.com/in/owentrolong" target="_blank"><i class='bx bxl-linkedin-square'></i> @Owen Trolong</a></li>
-            <li><i class='bx bx-map'></i> Lille, France</li>
-        </ul>
-        <p><i class='bx bx-copyright'></i> 2025 TROLONG Owen. Tous droits réservés.</p>
-    </footer>
-<!--
-</div>-->
 </body>
 </html>
