@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const elapsedTime = Date.now() - startTime;
       const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
   
-      // Attend le temps restant si nécessaire
+     
       setTimeout(() => {
         loadingScreen.style.display = "none";
         portfolio.style.display = "block";
