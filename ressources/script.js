@@ -134,8 +134,22 @@ function showModal(projectId) {
         modalTitle.textContent = "Création du logo personnel";
         modalImage.src = "images/Logo ot.png";
         modalDescription.textContent = "Ce logo permet de me définir dans un style assez simple avec deux couleurs qui sont le noir pour le côté sobre et or pour le côté luxueux du logo.";
+    } else if (projectId === 'projet9') {
+        modalTitle.textContent = "Maquette Figma Vagabonda";
+        modalImage.src = "images/Logovagabonda.jpg";
+        modalDescription.innerHTML = '<a href="https://www.figma.com/proto/KHrIk9HDs5657oZ6iq9CMG/Vagabonda?node-id=0-1&t=xIAwZpnVNepsOg6u-1">'+
+        '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAdElEQVR4nL3SrQ3CcBBA8V9RyJougMcgWaBbNKlhBSwrIFmBHZAM0gE6QE2v5l8Px8dLnny5XO74Enu02fiCwBPHbByYcccuE0dxwg1NJo7iiDO2mXh1wAmbTBzFPju5Q/XznSdcUf/lzg8cXo1WPvrtt1kAAURIunEqQGgAAAAASUVORK5CYII=" alt="play--v1"> Figma<a>'+
+        '<br>Dans le cadre de la SAE Marathon du Web 2025, le site web Vagabonda a été conçu en 36 heures. Le lien mène vers une maquette interactive réalisée sur Figma. Ce projet permet aux utilisateurs de partager et découvrir des itinéraires de voyage, principalement en Amérique latine. Il favorise les échanges entre voyageurs à travers des parcours, des commentaires et des recommandations. Le design, réalisé sur Figma, intègre un logo créé avec Illustrator. Ce projet mêle inspiration, partage et découverte de nouvelles destinations.'+
+        '<br> Groupe : Owen TROLONG, Jeremy BARBARIN, Hugo TREBUCHERE, Emilien AGACHE, Hugo LEGRAND';
+    } else if (projectId === 'projet10') {
+        modalTitle.textContent = "Maquette Figma IronWay";
+        modalImage.src = "images/banniereironway.jpg"; // Remplace par le chemin de ton image
+        modalDescription.innerHTML = '<a href="https://www.figma.com/proto/0itiJD8cmal8V0qrEIn5gi/SAE-202---IronWay?node-id=0-1&t=pA1U63ZQus41n7wz-1" target="_blank" rel="noopener noreferrer">' +
+            '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAdElEQVR4nL3SrQ3CcBBA8V9RyJougMcgWaBbNKlhBSwrIFmBHZAM0gE6QE2v5l8Px8dLnny5XO74Enu02fiCwBPHbByYcccuE0dxwg1NJo7iiDO2mXh1wAmbTBzFPju5Q/XznSdcUf/lzg8cXo1WPvrtt1kAAURIunEqQGgAAAAASUVORK5CYII=" alt="play--v1"> Figma<a>'+
+            "<br>Dans le cadre de la SAE Marathon du Web 2025, le projet IronWay a été conçu en 2 semaines. Inspiré des événements IronMan, il s'agit d'un événement sportif d'endurance. Notre équipe a réalisé la communication complète, la création d’une maquette sur Figma, ainsi que le développement d’un site web sous WordPress. Ce projet met en avant les valeurs de dépassement de soi et d'endurance sportive.<br>" +
+            "Groupe : Owen Trolong, Emilien Agache, Jérémy Barbarin, Hugo Legrand, Kilian Kwiczor";
     }
-    
+
    
     modal.style.display = "block";
 }
@@ -156,6 +170,26 @@ window.onclick = function(event) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Search Word */
+
 function clearHighlights() {
     const marks = document.querySelectorAll('mark'); 
     marks.forEach(mark => {
@@ -163,6 +197,15 @@ function clearHighlights() {
         parent.replaceChild(document.createTextNode(mark.textContent), mark);
     });
 }
+
+
+
+
+
+
+
+
+
 
 
 function highlightWord(element, word) {
