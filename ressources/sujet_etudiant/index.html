@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>yakapartir.fr</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100..800&family=Poiret+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <link rel="stylesheet" href="css/normalize.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+
+<header class="container header">
+<a href="" class="logo">Yaka Partir.Fr</a>
+<nav class="menu">
+  <a href="" class="active">Accueil</a>
+  <a href="">Notre guide</a>
+  <a href="">S'inspirer</a>
+  <a href="">Infos pratiques</a>
+</nav>
+<a href="" class="button">S'inscrire</a>
+</header>
+
+<section class="container banner">
+  <div class="banner__presentation">
+    <h1>Visiter les plus <strong>belles villes</strong> de France</h1>
+    <p>Ah, le plaisir de musarder le nez en l’air, de déambuler entre amis, en famille.
+       En France, plus qu’ailleurs, on sait prendre le temps de vivre et de profiter de ces bons moments partagés.</p>
+  </div>
+  <div class="banner__gallery">
+    <img id="photo1" src="images/paris.jpg" alt="">
+    <img id="photo2" src="images/lille.jpg" alt="">
+    <img id="photo3" src="images/annecy.jpg" alt="">
+    <img id="photo4" src="images/bordeaux.jpg" alt="">
+    <img id="photo5" src="images/nice.jpg" alt="">
+  </div>
+  <form>
+    <div class="input_data">
+      <label for="city-select">Destination:</label>
+      <select name="city" id="city-select">
+        <option value="">Où voulez vous aller ?</option>
+        <option value="5">Bordeaux</option>
+        <option value="2">Lille</option>
+        <option value="6">Lyon</option>
+        <option value="1">Marseille</option>
+        <option value="3">Paris</option>
+        <option value="4">Strasbourg</option>
+      </select>
+    </div>
+    <div class="input_data">
+      <label for="arrival-select">Arrivée:</label>
+      <input type="date"  name="arrival" id="arrival-select">
+    </div>
+    <div class="input_data">
+      <label for="departure-select">Départ:</label>
+      <input type="date"  name="departure" id="departure-select">
+    </div>
+    <div class="input_data">
+      <input class="button" type="submit" value="Chercher">
+    </div>
+  </form>
+</section>
+
+
+<section class="container city">
+  <h2>Quelques lieux à ne pas manquer</h2>
+  <div class="city__gallery">
+    <a href="" id="city1">
+      <img src="images/agde.jpg">
+      <span>Agde – Occitanie </span>
+    </a>
+    <a href="" id="city2">
+      <img src="images/lyon.jpg">
+      <span>Lyon - Auvergne-Rhône-Alpes</span>
+    </a>
+    <a href="" id="city3">
+      <img src="images/bonifacio.jpg">
+      <span>Bonifacio - Corse</span>
+    </a>
+    <a href="" id="city4">
+      <img src="images/carnac.jpg">
+      <span>Carnac - Bretagne</span>
+    </a>
+    <a href="" id="city5">
+      <img src="images/montelimar.jpg">
+      <span>Montélimar -  Auvergne-Rhône-Alpes</span>
+    </a>
+    <a href="" id="city6">
+      <img src="images/biarritz.jpg">
+      <span>Biarritz - Nouvelle-Aquitaine</span>
+    </a>
+  </div>
+</section>
+
+<footer class="container footer">
+  <a href="" class="logo">Yaka Partir.Fr</a>
+
+  <div><strong>YakaPartir.fr</strong> est une marque déposée de MMI Création. &copy; 2024.</div>
+</footer>
+</body>
+</html>

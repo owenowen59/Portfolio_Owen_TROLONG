@@ -140,14 +140,31 @@ function showModal(projectId) {
         modalDescription.innerHTML = '<a href="https://www.figma.com/proto/KHrIk9HDs5657oZ6iq9CMG/Vagabonda?node-id=0-1&t=xIAwZpnVNepsOg6u-1">'+
         '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAdElEQVR4nL3SrQ3CcBBA8V9RyJougMcgWaBbNKlhBSwrIFmBHZAM0gE6QE2v5l8Px8dLnny5XO74Enu02fiCwBPHbByYcccuE0dxwg1NJo7iiDO2mXh1wAmbTBzFPju5Q/XznSdcUf/lzg8cXo1WPvrtt1kAAURIunEqQGgAAAAASUVORK5CYII=" alt="play--v1"> Figma<a>'+
         '<br>Dans le cadre de la SAE Marathon du Web 2025, le site web Vagabonda a été conçu en 36 heures. Le lien mène vers une maquette interactive réalisée sur Figma. Ce projet permet aux utilisateurs de partager et découvrir des itinéraires de voyage, principalement en Amérique latine. Il favorise les échanges entre voyageurs à travers des parcours, des commentaires et des recommandations. Le design, réalisé sur Figma, intègre un logo créé avec Illustrator. Ce projet mêle inspiration, partage et découverte de nouvelles destinations.'+
-        '<br> Groupe : Owen TROLONG, Jeremy BARBARIN, Hugo TREBUCHERE, Emilien AGACHE, Hugo LEGRAND';
+        '<br> Groupe : Owen TROLONG, Jeremy BARBARIN, Hugo TREBUCHERE, Emilien AGACHE, Hugo LEGRAND<br>'+ 
+        "Outils : Photoshop, Illustrator, Figma, Canva, Trello, Discord, PHP(Framework Laravel), MySQL, HTML, CSS, JavaScript";
     } else if (projectId === 'projet10') {
         modalTitle.textContent = "Maquette Figma IronWay";
         modalImage.src = "images/banniereironway.jpg"; // Remplace par le chemin de ton image
         modalDescription.innerHTML = '<a href="https://www.figma.com/proto/0itiJD8cmal8V0qrEIn5gi/SAE-202---IronWay?node-id=0-1&t=pA1U63ZQus41n7wz-1" target="_blank" rel="noopener noreferrer">' +
             '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAdElEQVR4nL3SrQ3CcBBA8V9RyJougMcgWaBbNKlhBSwrIFmBHZAM0gE6QE2v5l8Px8dLnny5XO74Enu02fiCwBPHbByYcccuE0dxwg1NJo7iiDO2mXh1wAmbTBzFPju5Q/XznSdcUf/lzg8cXo1WPvrtt1kAAURIunEqQGgAAAAASUVORK5CYII=" alt="play--v1"> Figma<a>'+
             "<br>Dans le cadre de la SAE Marathon du Web 2025, le projet IronWay a été conçu en 2 semaines. Inspiré des événements IronMan, il s'agit d'un événement sportif d'endurance. Notre équipe a réalisé la communication complète, la création d’une maquette sur Figma, ainsi que le développement d’un site web sous WordPress. Ce projet met en avant les valeurs de dépassement de soi et d'endurance sportive.<br>" +
-            "Groupe : Owen Trolong, Emilien Agache, Jérémy Barbarin, Hugo Legrand, Kilian Kwiczor";
+            "Groupe : Owen Trolong, Emilien Agache, Jérémy Barbarin, Hugo Legrand, Kilian Kwiczor<br>"+ 
+            "Outils : Photoshop, Illustrator, Figma, WordPress, Canva, Trello, Discord";
+    } else if (projectId === 'projet11') {
+        modalTitle.textContent = "Exercice HTML/CSS: 'Yakapartir'";
+        modalImage.src = "images/Yakapartir2.png"; // Remplace par le chemin de ton image
+        modalDescription.innerHTML = '<a href="ressources/sujet_etudiant/index.html">' +
+            '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAdElEQVR4nL3SrQ3CcBBA8V9RyJougMcgWaBbNKlhBSwrIFmBHZAM0gE6QE2v5l8Px8dLnny5XO74Enu02fiCwBPHbByYcccuE0dxwg1NJo7iiDO2mXh1wAmbTBzFPju5Q/XznSdcUf/lzg8cXo1WPvrtt1kAAURIunEqQGgAAAAASUVORK5CYII=" alt="play--v1"> Accueil Voyage<a>'+
+            "<br>Dans le cadre d'une évalutation, nous devons recréer la même présentation de la page d'accueil avec le css, le code html était déjà en place et j'ai dû créer le code css à partir du code html.<br>" +
+            "Auteur : Owen Trolong<br>"+ 
+            "Outils : Visual Studio Code, HTML, CSS";
+    } else if (projectId === 'projet12') {
+        modalTitle.textContent = "Affiche Tournoi départemental d'échecs féminin";
+        modalImage.src = "images/Echecsdepartementalfeminin.jpg"; // Remplace par le chemin de ton image
+        modalDescription.innerHTML = 
+            "<br>Le club d'échecs MAT88 m'a demandé de réaliser une affiche pour le championnat départemental féminin 2025. Cette affiche a pour but d'annoncer qu'Armentières sera la destination pour le championnat départemental féminin 2025. La deuxième année consécutive qu'Armentières recevra cette compétition et continue sa lancée dans un mouvement dynamique bien sûr à l'égard du sport mais surtout au niveau des échecs. <br>" +
+            "Auteur : Owen Trolong <br>"+ 
+            "Outils : Photoshop, Illustrator, Firefly(Adobe)";
     }
 
    

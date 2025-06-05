@@ -1,0 +1,459 @@
+
+/* GLOBAL */
+
+* {
+  box-sizing: border-box;
+}
+
+html { font-size: 62.5%; }
+
+body {
+  font-family: 'Montserrat';
+  background-color: rgb(240,240,240);
+}
+
+a {
+  text-decoration: none;
+  color:black;
+}
+
+
+/* global (3 points)*/
+/* quelques informations :
+   - on limite la largeur de l'écran a 1100px
+   - le logo : font-family: "Poiret One", sans-serif; on peut utiliser la pseudoclasse ::first-letter
+   pour appliquer un style à la première lettre
+   - le bleu : rgba(18,102,252,1);
+   - l'effet d'ombrage sur les boutons : box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+*/
+
+/* TODO */
+
+.container{
+  
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0px 20px;
+  
+}
+
+
+.header{
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  margin: auto;
+  padding: 10px 40px;
+}
+.menu{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu a{
+  padding: 5px;
+}
+.header .active{
+  font-weight: bold;
+}
+.login {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+}
+
+.logo {
+  font-size: 3vh;
+}
+
+.logo::first-letter{
+  color: #5392ff;
+  font-weight: 500;
+  font-size: 4vh;
+}
+
+.button {
+  background-color: #5392ff;
+  padding : 5px;
+  color: white;
+  font-weight: 600;
+  border-radius: 10%;
+}
+
+
+/* HEADER (3 points) */
+/* quelques informations :
+   - code couleur du trait de séparation horizontal : rgb(220,220,220,0.5);
+*/
+
+/* TODO *//*
+.headersepare {
+  border: 1px solid rgb(220,220,220,0.5);
+}*/
+.header{
+border-bottom: 1px solid rgb(220,220,220,0.5);
+}
+/* BANNER (8 points)*/
+/* quelques informations :
+   - le bleu : rgba(18,102,252,1);
+   - On rappelle que dans un grid-template-areas,
+     le point (.) permet d'indiquer une cellule vide ;-)
+*/
+
+/* TODO */
+
+.banner {
+  margin: 50px auto;
+  display: flex;
+  
+  justify-content: space-between;
+  
+  padding: 0px 20px;
+}
+
+
+.banner__presentation {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: stretch;
+  width: 300px;
+  margin-right: 220px;
+  margin-bottom: 2rem;
+  
+}
+
+.banner__presentation h1 {
+  text-transform: capitalize;
+  font-size: 3rem;
+  color: #000;
+  line-height: 1.4;
+  max-width: 350px;
+}
+
+.banner__presentation h1 strong {
+  color: rgba(18,102,252,1); 
+}
+
+.banner__presentation p {
+  font-size: 1.5rem;
+  min-width: 420px;
+  color: #666;
+  margin-top: 0.5rem;
+}
+/*
+.banner__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.banner__gallery img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+#photo1 {
+  grid-column: 1 / span 2;
+}*/
+
+.banner__gallery {
+  display: grid;
+  /*
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);*/
+  grid-gap: 10px;
+  grid-template:
+    "paris . . " 1fr
+    "paris lille ." 1fr
+    "paris lille plage" 1fr
+    "eparis lille plage" 1fr 
+    "eparis nuit plage" 1fr 
+    "eparis nuit plage" 1fr
+    / auto 1fr;/*
+    grid-template:
+    "paris . . " 1.5fr
+    "paris lille ." 3fr
+    "paris lille plage" 4fr
+    "eparis lille plage" 2fr
+    "eparis nuit plage" 7fr
+    "eparis nuit plage" 1fr / auto 1fr;
+*/
+    
+}
+.banner__gallery img {
+  
+  border-radius: 10px;
+  object-fit: cover;
+}
+#photo1 /*Paris oui*/{
+  width: 30vh;
+  height: 30vh;/*
+  grid-column: 1;
+  grid-row: 1;*/
+  grid-area: paris;
+}
+#photo3 /*en dessous paris oui*/{
+  width: 30vh;
+  height: 30vh;/*
+  grid-column: 1;
+  grid-row: 2 / span 1 ;*/
+  grid-area: eparis;
+}
+#photo2 /*Lille */{
+  width: 20vh;
+  height: 30vh;/*
+  grid-column: 2;
+  grid-row: 1;*/
+  grid-area: lille;
+}
+#photo4 /*Photo Nuit */{
+  width: 20vh;
+  height: 19.5vh;/*Pourquoi ca fonctionne*//*
+  grid-column: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;*/
+  grid-area:nuit;
+}
+#photo5 /*Plage */{
+  
+  width: 20vh;
+  height: 40vh;/*
+  grid-column: 3;
+  grid-row: 2;*/
+  grid-area: plage;
+  
+  
+}
+form {
+  position: absolute;
+  padding-right: 50px;
+  padding-left: 100px;
+  top: 55%;
+  
+  transform: translateY(140%);
+  
+  background-color: rgba(255, 255, 255, 1);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+  max-width: 650px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  
+}
+form label{
+  font-weight: bold;
+}
+.input_data input{
+  width: 150px;
+}
+.input_data {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding: 5px;
+  justify-content: flex-end;
+}
+
+.input_data label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.input_data input[type="date"],
+.input_data select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+#city-select{
+  min-width: 150px;
+}
+.input_data input.button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.input_data input.button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+/* CITY (4 points)*/
+/* quelques informations :
+   - le fond semi-transparent du span rgba(0,0,0,0.5);
+*/
+
+/* TODO */
+
+.city {
+  margin-top: 150px;
+  padding: 0 2rem;
+  /*text-align: center;*/
+}
+
+.city h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 8rem;
+  position: relative;
+  width: 500px;
+  font-weight: bold;
+}
+
+.city h2::after {
+  position: absolute;
+  /* top: 100%; */
+  /* left: 50%; */
+  transform: translateX(-60%) translateY(90%) rotate(-5deg);
+  z-index: -1;
+  content: "";
+  background-image: url(../images/marker.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40%;
+  height: 30px;
+}
+
+
+.city__gallery {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(4,1fr);
+  grid-auto-rows: 1fr;
+  grid-template-areas:
+    "Agde Agde Lyon Bonifacio" 
+    "Carnac Montelimar Lyon Biarritz" ;
+}
+#city1{
+  
+  grid-area: Agde;
+  transform: rotate(5deg);
+
+}
+#city2{
+  grid-area: Lyon;
+  transform: rotate(-4deg);
+ 
+}
+#city3{
+  grid-area: Bonifacio;
+  transform: rotate(5deg);
+ 
+}
+#city4{
+  grid-area: Carnac;
+  transform: rotate(5deg);
+
+}
+#city5{
+  grid-area: Montelimar;
+  transform: rotate(-5deg);
+
+}
+#city6{
+  grid-area: Biarritz;
+  transform: rotate(-3deg);
+
+}
+
+
+.city__gallery a {
+ 
+  position: relative;
+  border: 3px solid white;
+  overflow: hidden;
+  /* border-radius: 10px; */
+  border-radius: 10px;
+  
+
+}
+
+.city__gallery img {
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+.city__gallery img:hover {
+  transform: scale(1.5);
+}
+
+.city__gallery span {
+  display: inline-block; 
+  flex: 1;
+  
+  transform: translateY(-100%);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 0px 0px 10px 10px;
+  
+}
+
+
+
+/* FOOTER (2 points)*/
+/* Quelques informations :
+   - code couleur du trait de séparation horizontal : rgb(220,220,220,0.5);
+*/
+/* Red border *//*
+.footersepare {
+  border: 1px solid rgb(220,220,220,0.5);
+}*/
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgb(220,220,220,0.5);
+  margin-top: 50px;
+  padding: 20px;
+}
+/* TODO */
+
+
+/* BONUS (1,5 points)*/
+/* Mettez en place un effet de zoom progressif au survol
+   de la souris sur les cartes de la section city
+*/
+
+/* TODO */
+.city__gallery a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
