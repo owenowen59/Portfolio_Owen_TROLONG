@@ -824,16 +824,20 @@ body {
 /* Section : Projets */
 
 #Projets {
-    padding: 20px;
+    padding-top: 100px;
     text-align: center;
     background-color: #00171f;
     color: #fff;
+    
+
 }
+
 
 #Projets h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
     color: #00b4d8;
+    scroll-margin-top: 100px; 
 }
 
 #Projets button {
@@ -896,7 +900,42 @@ body {
     cursor: pointer;
     border-radius: 10px;
     overflow: hidden;
+    animation: fadeInUp 0.6s ease-in-out;
 }
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.rprojets li::after {
+    font-weight: bold;
+    letter-spacing: 1px;
+    backdrop-filter: blur(5px);
+}
+
+.rprojets li:hover {
+    box-shadow: 0 10px 20px rgba(0, 180, 216, 0.5);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+/*
+.rprojets li img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out; 
+}*/
 
 .rprojets li img {
     position: absolute;
@@ -905,12 +944,16 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease-in-out; /* Transition pour l'image */
+    image-rendering: crisp-edges; 
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transition: transform 0.3s ease-in-out;
 }
 
 .rprojets li:hover img {
     transform: scale(1.1);
     opacity: 1;
+    backface-visibility: hidden;
 }
 
 .rprojets li::after {
@@ -1123,6 +1166,8 @@ body {
 
 
 /* Footer */
+
+
 #Contact {
     
     background: linear-gradient(45deg, #003459 30%, #00b4d8);
@@ -1152,24 +1197,33 @@ body {
     font-size: 1rem;
 }
 
+
 #Contact ul li a {
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s;
-    font-size: 1rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  vertical-align: middle;
 }
 
 #Contact ul li a:hover {
-    color: #00b4d8; /* Changement de couleur au survol */
+  color: #00b4d8;
 }
 
-/* Style des icônes */
-#Contact ul li i {
-    margin-right: 8px;
-    font-size: 1.2rem;
+#Contact ul li i,
+#Contact ul li svg.svg-icon {
+  font-size: 1.2rem;
+  margin: 0;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#Contact ul li svg.svg-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }
 
 /* Pied de page copyright */
@@ -1231,6 +1285,63 @@ body {
     }
 }
 
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px 0;
+  animation: fadeIn 1.5s ease-out both;
+}
+
+.footer-col {
+  flex: 1 1 280px;
+  max-width: 400px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+.footer-col ul li a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  gap: 6px;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.footer-col ul li i {
+  font-size: 1.2rem;
+  line-height: 1;
+  vertical-align: middle;
+  margin-right: 4px; 
+}
+
+
+.footer-col a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: #90e0ef;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
 
 

@@ -75,9 +75,18 @@
         <button id="univ">Réalisations Académiques</button>
         <button id="perso">Réalisations Personnelles</button>
         <ul id="creauniv" class="rprojets active">
-            <li data-title="Maquette Figma Vagabonda" onclick="showModal('projet9')"><img src="images/Logovagabonda.jpg" alt="Image projet"></li>
-            <li data-title="Maquette Figma IronWay" onclick="showModal('projet10')"><img src="images/banniereironway.jpg" alt="Image projet"></li>
-            <li data-title="Exercice HTML/CSS 'Yakapartir'" onclick="showModal('projet11')"><img src="images/Couverturewebhtmlcss.jpeg" alt="Image projet"></li>
+            <li data-title="Maquette Figma Vagabonda" onclick="showModal('projet9')">
+                <img src="images/Logovagabonda.jpg" 
+                sizes="(max-width: 768px) 50vw, 33vw"
+                alt="Projet" /></li>
+            <li data-title="Maquette Figma IronWay" onclick="showModal('projet10')">
+                <img src="images/banniereironway.jpg" 
+                sizes="(max-width: 768px) 50vw, 33vw"
+                alt="Projet" /></li>
+            <li data-title="Exercice HTML/CSS 'Yakapartir'" onclick="showModal('projet11')">
+                <img src="images/Couverturewebhtmlcss.jpeg" 
+                sizes="(max-width: 768px) 50vw, 33vw"
+                alt="Projet" /></li>
             <li data-title="Mockup Maison édition" onclick="showModal('projet1')"><img src="images/Mockup 1ere couverture livre sensorielle.png" alt="Image projet"></li>
             <li data-title="Mystère façon hitchicock" onclick="showModal('projet2')"><img src="images/TROLONG_Owen_MYSTÈRE version2.jpg" alt="Image projet"></li>
             <li data-title="Miroir Musée d'art Moderne (Paris)" onclick="showModal('projet3')"><img src="images/TROLONG_Owen_2_modifiée.jpg" alt="Image projet"></li>
@@ -117,24 +126,40 @@
 
     <footer id="Contact">
         <h1>Contactez-Moi</h1>
-        <ul>
-            
-            <li><button onclick="window.location.href='CV - TROLONG Owen.pdf';" class="button-link">Voir mon CV Papier<br></button></li>
-            <!--<li><button onclick="window.location.href='#';" class="button-link">Voir mon CV Vidéo<br>(Bientôt disponible)</button></li>-->
-        </ul>
-        <ul>
-            <li><i class='bx bxl-gmail'></i> owen.trolong@gmail.com</li>
-            <li><a href="https://www.linkedin.com/in/owentrolong" target="_blank"><i class='bx bxl-linkedin-square'></i> @Owen Trolong</a></li>
-            <li>
-                <a href="https://www.github.com/owenowen59" target="_blank">
-                <i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256">
-                    <g fill="#f1eff0" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M10.9,2.1c-4.6,0.5 -8.3,4.2 -8.8,8.7c-0.5,4.7 2.2,8.9 6.3,10.5c0.3,0.1 0.6,-0.1 0.6,-0.5v-1.6c0,0 -0.4,0.1 -0.9,0.1c-1.4,0 -2,-1.2 -2.1,-1.9c-0.1,-0.4 -0.3,-0.7 -0.6,-1c-0.3,-0.1 -0.4,-0.1 -0.4,-0.2c0,-0.2 0.3,-0.2 0.4,-0.2c0.6,0 1.1,0.7 1.3,1c0.5,0.8 1.1,1 1.4,1c0.4,0 0.7,-0.1 0.9,-0.2c0.1,-0.7 0.4,-1.4 1,-1.8c-2.3,-0.5 -4,-1.8 -4,-4c0,-1.1 0.5,-2.2 1.2,-3c-0.1,-0.2 -0.2,-0.7 -0.2,-1.4c0,-0.4 0,-1 0.3,-1.6c0,0 1.4,0 2.8,1.3c0.5,-0.2 1.2,-0.3 1.9,-0.3c0.7,0 1.4,0.1 2,0.3c1.3,-1.3 2.8,-1.3 2.8,-1.3c0.2,0.6 0.2,1.2 0.2,1.6c0,0.8 -0.1,1.2 -0.2,1.4c0.7,0.8 1.2,1.8 1.2,3c0,2.2 -1.7,3.5 -4,4c0.6,0.5 1,1.4 1,2.3v2.6c0,0.3 0.3,0.6 0.7,0.5c3.7,-1.5 6.3,-5.1 6.3,-9.3c0,-6 -5.1,-10.7 -11.1,-10z"></path></g></g>
-                </svg></i>
-                owenowen59</a>
-            </li>
-            <li><i class='bx bx-map'></i> Lille, France</li>
-        </ul>
-        <p><i class='bx bx-copyright'></i> 2025 TROLONG Owen. Tous droits réservés.</p>
+
+        <div class="footer-grid">
+            <div class="footer-col">
+            <button onclick="window.location.href='CV - TROLONG Owen.pdf';" class="button-link">
+                📄 Voir mon CV Papier
+            </button>
+            </div>
+
+            <div class="footer-col">
+                <ul>
+                    <li>
+                        <a href="mailto:owen.trolong@gmail.com">
+                        <i class='bx bxl-gmail'></i> owen.trolong@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/owentrolong" target="_blank">
+                        <i class='bx bxl-linkedin-square'></i> @Owen Trolong
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.github.com/owenowen59" target="_blank" class="github-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="svg-icon">
+                            <path d="M12 .5C5.4.5 0 6 0 12.4c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 2 3 1.4 3.7 1.1.1-.8.4-1.4.7-1.7-2.6-.3-5.4-1.3-5.4-5.7 0-1.3.5-2.3 1.2-3.2 0-.3-.5-1.4.1-3 0 0 1-.3 3.2 1.2.9-.3 1.8-.5 2.7-.5s1.9.2 2.7.5c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.1 2.7.1 3 .8.9 1.2 1.9 1.2 3.2 0 4.5-2.8 5.4-5.4 5.7.5.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6C20.6 22.2 24 17.7 24 12.4 24 6 18.6.5 12 .5z"/>
+                        </svg>
+                        owenowen59
+                        </a>
+                    </li>
+                    <li><i class='bx bx-map'></i> Lille, France</li>
+                </ul>
+            </div>
+        </div>
+
+    <p><i class='bx bx-copyright'></i> 2025 TROLONG Owen. Tous droits réservés.</p>
     </footer>
 </body>
 </html>

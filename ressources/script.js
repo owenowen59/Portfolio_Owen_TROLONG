@@ -330,3 +330,23 @@ document.querySelectorAll('.navigation li a').forEach(link => {
         this.classList.add('active');
     });
 });
+
+
+
+
+
+document.querySelectorAll("#Projets button").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll("#Projets button").forEach(b => b.classList.remove("active-btn"));
+        btn.classList.add("active-btn");
+
+        document.getElementById("creauniv").classList.remove("active");
+        document.getElementById("creaperso").classList.remove("active");
+
+        if (btn.id === "univ") {
+            document.getElementById("creauniv").classList.add("active");
+        } else {
+            document.getElementById("creaperso").classList.add("active");
+        }
+    });
+});
