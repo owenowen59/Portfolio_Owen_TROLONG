@@ -1,0 +1,67 @@
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #111;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      justify-content: space-between;
+    }
+
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex: 1;
+    }
+
+    .title {
+      font-size: 4em;
+      margin-bottom: 1em;
+    }
+
+    .btn-entrer {
+      padding: 14px 30px;
+      background-color: rgb(0, 128, 174);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.4em;
+      transition: background 0.3s;
+    }
+
+    .btn-entrer:hover {
+      background-color: #00b4d8;
+    }
+
+    /* CSS */
+    .scroll-container {
+    background-color: #111;
+    color: #00ffe7;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 15px 0;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    }
+
+    .scroll-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-loop 25s linear infinite;
+    }
+
+    .scroll-track span {
+    display: inline-block;
+    padding-right: 100px;
+    }
+
+    @keyframes scroll-loop {
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+    }

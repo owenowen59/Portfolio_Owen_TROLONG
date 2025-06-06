@@ -276,3 +276,33 @@ if (searchInput) {
         }
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Fonction pour détecter quand un élément est visible à l'écran
+function revealOnScroll() {
+    const items = document.querySelectorAll('.timeline-item');
+    const windowHeight = window.innerHeight;
+
+    items.forEach(item => {
+      const elementTop = item.getBoundingClientRect().top;
+
+      if (elementTop < windowHeight - 100) {
+        item.classList.add('visible');
+      }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
