@@ -60,6 +60,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
+let lastScrollTop = 0;
+const navbar = document.querySelector('.barnav');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+            // Scroll vers le bas → cacher la barre
+        navbar.style.transform = 'translateY(-100%)';
+    } else {
+            // Scroll vers le haut → montrer la barre
+        navbar.style.transform = 'translateY(0)';
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Empêche les valeurs négatives
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const btn1 = document.getElementById('univ');
     const btn2 = document.getElementById('perso');
@@ -306,3 +324,9 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
+document.querySelectorAll('.navigation li a').forEach(link => {
+    link.addEventListener('click', function () {
+        document.querySelectorAll('.navigation li a').forEach(el => el.classList.remove('active'));
+        this.classList.add('active');
+    });
+});

@@ -19,6 +19,15 @@ body {
     height: 8vh;
     padding: 0 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
+
 }
 
 .barnav h3 {
@@ -75,45 +84,52 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
+    padding: 0 10px;
     height: 50px;
-    border-radius: 50%;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    transform-origin: center left;
-    transition: width 0.2s ease-in;
-    text-decoration: none;
+    border-radius: 25px; /* cercle -> ovale doux */
+    background-color: transparent;
+    transition: background-color 0.3s, padding 0.3s;
     color: inherit;
+    gap: 10px;
+    overflow: hidden;
 }
+
 
 /* Affichage du texte au survol */
 .navigation li a span {
-    /*opacity:0;*/
-    display:none;
-    /*position: absolute;*/
-    left: 100%;
-    margin-left: 10px;
-    /*transition: opacity 0.3s, visibility 0.3s;*/
-    color: white;
-    font-size: 1rem;
+    
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     white-space: nowrap;
+    font-size: 1rem;
 }
+
 
 /* Animation au survol */
 .navigation li:hover a span {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+.navigation li:hover a span,
+.navigation li a.active span {
+    opacity: 1;
+    visibility: visible;
 }
 /* Au survol, l'icône s'agrandit */
 .navigation li:hover .link {
-    width: 100px; /* Ajuster la largeur si nécessaire */
+    background-color: #0077b6;
+    padding: 0 20px;
 }
 
 /* Changement de couleur de fond au survol */
 .navigation li a:hover .link {
     background-color: #0077b6;
 }
-
+.navigation li a.active:hover .link {
+    background-color: #81d3ff;
+}
+.navigation li a.active:hover span {
+    color: #00425e;
+}
 /* Ajout d'une ombre légère sur les icônes */
 .navigation li a i {
     font-size: 1.5rem;
@@ -121,6 +137,16 @@ body {
 }
 
 .navigation li:hover a i {
+    transform: scale(1.2);
+}
+.navigation li a.active .link {
+    background-color: #33d8f9;
+    padding: 0 20px;
+}
+.navigation li a.active span {
+    color: #fff;
+}
+.navigation li a.active i {
     transform: scale(1.2);
 }
 
