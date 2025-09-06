@@ -350,6 +350,22 @@ body {
 .carousel-btn.next {
   right: 20px;
 }
+/* Rend l’iframe responsive */
+.video-wrapper {
+  position: relative;
+  width: 80%;      /* adapte la largeur */
+  max-width: 800px; /* limite sur grand écran */
+  aspect-ratio: 16/9; /* garde le bon format */
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px; /* option esthétique */
+}
 /* ========== MOI SECTION ========== */
 #Moi {
     background: linear-gradient(135deg, #0a192f, #1f4068);
