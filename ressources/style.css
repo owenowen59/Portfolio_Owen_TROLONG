@@ -304,9 +304,17 @@ body {
   height: 100vh; 
   display: flex;
   justify-content: center;
+  text-align: center;
   align-items: center;
   background: #111; /* tu peux changer */
   overflow: hidden;
+  
+}
+
+.carousel-container h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-top: 30px;
+    color: #fff;
 }
 
 .carousel-container {
