@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="ressources/style2.css">
     <script src="ressources/script.js"></script>
     <script src="ressources/script2.js"></script>
+    <script src="ressources/scriptcarroussel.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -111,33 +112,154 @@
       </div>
       <img src="images/Photo_Owen.jpg" class="PP" alt="Photo de Owen">
    </section>
-   <section class="projets_importants">
-    
+<!--
+    <section class="projets_importants">
         <div class="carousel-container">
-            <h2>Sélection de Projets</h2>
-            <ul class="carousel">
-                <li class="carousel-item active">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/UW50FyJ668c" 
-                        title="Lancement de l'IronWay" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                        </iframe>
+            <div class="carousel-header">
+                <h1>Sélection de Projets</h1>
+                <p>Survolez les projets pour les découvrir • Images et vidéos en direct</p>
+            </div>
+
+            <div class="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    
+                    <div class="project-card active" onclick="openProject('https://example.com/ecommerce')">
+                        <div class="project-media">
+                            <img src="ressources/matisse/Flyer.png" alt="E-commerce Platform">
+                            <div class="media-overlay">
+                                <div class="hover-icon">👁️</div>
+                            </div>
+                            <div class="media-type-indicator">IMAGE</div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-type">E-commerce</span>
+                            <h3 class="project-title">Boutique Premium</h3>
+                            <p class="project-description">
+                                Plateforme e-commerce haut de gamme avec interface moderne, système de paiement sécurisé et gestion avancée des stocks. Optimisée pour la conversion et l'expérience utilisateur.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">Stripe</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://example.com/ecommerce" class="project-link btn-primary" onclick="event.stopPropagation()">
+                                    Voir le projet →
+                                </a>
+                                
+                            </div>
+                        </div>
                     </div>
-                </li>
-                <li class="carousel-item">Projet 2</li>
-                <li class="carousel-item">Projet 3</li>
-                <li class="carousel-item">Projet 4</li>
-                <li class="carousel-item">Projet 5</li>
-            </ul>
 
-            <!-- Boutons de navigation -->
-            <button class="carousel-btn prev">‹</button>
-            <button class="carousel-btn next">›</button>
+                    
+                    <div class="project-card" onclick="openProject('https://example.com/portfolio')">
+                        <div class="project-media">
+                            <iframe src="https://www.youtube.com/embed/UW50FyJ668c" title="Lancement de l'IronWay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+                        </iframe>
+                            <div class="media-overlay">
+                                <div class="hover-icon">▶️</div>
+                            </div>
+                            <div class="media-type-indicator">VIDÉO</div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-type">Portfolio</span>
+                            <h3 class="project-title">Portfolio Créatif 3D</h3>
+                            <p class="project-description">
+                                Portfolio interactif avec animations 3D, transitions fluides et effets visuels immersifs. Démonstration en vidéo des fonctionnalités avancées et du design innovant.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Three.js</span>
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">GSAP</span>
+                                <span class="tag">WebGL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://example.com/portfolio" class="project-link btn-primary" onclick="event.stopPropagation()">
+                                    Découvrir →
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="project-card" onclick="openProject('https://example.com/dashboard')">
+                        <div class="project-media">
+                            <img src="ressources/matisse/Flyer.png" alt="Dashboard Analytics">
+                            <div class="media-overlay">
+                                <div class="hover-icon">📊</div>
+                            </div>
+                            <div class="media-type-indicator">IMAGE</div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-type">Analytics</span>
+                            <h3 class="project-title">Dashboard BI</h3>
+                            <p class="project-description">
+                                Tableau de bord business intelligence avec visualisations interactives, rapports en temps réel et analyses prédictives. Interface intuitive pour la prise de décision.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Angular</span>
+                                <span class="tag">D3.js</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://example.com/dashboard" class="project-link btn-primary" onclick="event.stopPropagation()">
+                                    Analyser →
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="project-card" onclick="openProject('https://example.com/webapp')">
+                        <div class="project-media">
+                            <iframe src="https://www.youtube.com/embed/UW50FyJ668c" title="Lancement de l'IronWay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+                        </iframe>
+                            <div class="media-overlay">
+                                <div class="hover-icon">🚀</div>
+                            </div>
+                            <div class="media-type-indicator">VIDÉO</div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-type">SaaS</span>
+                            <h3 class="project-title">Application SaaS</h3>
+                            <p class="project-description">
+                                Application web complète avec authentification, gestion multi-tenant, API REST et interface responsive. Solution scalable pour entreprises modernes.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">Prisma</span>
+                                <span class="tag">Tailwind</span>
+                                <span class="tag">Vercel</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://example.com/webapp" class="project-link btn-primary" onclick="event.stopPropagation()">
+                                    Tester →
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn">‹</button>
+                <div class="carousel-dots" id="dotsContainer"></div>
+                <button class="carousel-btn" id="nextBtn">›</button>
+            </div>
+
+            <div class="carousel-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
         </div>
+
     </section>
-
-
+-->
+    
     <section id="Moi">
         <div class="presentation-container">
             <div class="bio-text">
