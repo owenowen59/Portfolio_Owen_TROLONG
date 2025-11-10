@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Page d'accueil principale -->
   <url>
     <loc>https://owentrolong.fr/</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- Page Accueil (si différente) -->
   <url>
     <loc>https://owentrolong.fr/accueil.html</loc>
-    <priority>0.8</priority>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
+  <!-- Page Projets -->
   <url>
     <loc>https://owentrolong.fr/projets.html</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- Page Contact -->
   <url>
     <loc>https://owentrolong.fr/accueil.html#Contact</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
