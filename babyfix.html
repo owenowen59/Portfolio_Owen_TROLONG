@@ -3,17 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BABYFIX — Le repair café du baby-foot</title>
+<title>BABYFIX Le repair café du baby-foot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --black: #272529;
-  --gold: #E8C840;
-  --gold-dark: #D5B67D;
+  --black: #1a1a1a;
+  --dark: #2B2B2B;
+  --green: #2E6B4F;
+  --green-dark: #1f4d38;
+  --green-light: rgba(46,107,79,0.12);
+  --oak: #C9A96E;
+  --oak-dark: #b08850;
   --white: #FAFAF6;
   --gray: #E3E3E5;
-  --light: #F4F0E4;
+  --light: #f5f0e8;
+  --muted: #777;
 }
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
@@ -46,14 +51,14 @@ nav {
   padding: 20px 48px;
   height: 100px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
-  background: rgba(17,17,17,0.92);
+  background: rgba(26,26,26,0.95);
   backdrop-filter: blur(12px);
 }
 .logo {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 28px;
   letter-spacing: 4px;
-  color: var(--gold);
+  color: var(--oak);
   text-decoration: none;
 }
 .logo span { color: var(--white); }
@@ -69,8 +74,8 @@ nav {
 }
 .nav-links a:hover { color: var(--white); }
 .nav-cta {
-  background: var(--gold) !important;
-  color: var(--black) !important;
+  background: var(--green) !important;
+  color: var(--white) !important;
   padding: 10px 24px;
   font-weight: 700 !important;
   letter-spacing: 1px !important;
@@ -102,7 +107,7 @@ nav {
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--oak);
   margin-bottom: 20px;
   animation: fadeUp .8s ease forwards;
   opacity: 0;
@@ -116,7 +121,7 @@ h1 {
   animation: fadeUp .8s .15s ease forwards;
   opacity: 0;
 }
-h1 .accent { color: var(--gold); }
+h1 .accent { color: var(--green); }
 h1 .outline {
   -webkit-text-stroke: 2px var(--white);
   color: transparent;
@@ -151,11 +156,11 @@ h1 .outline {
   transition: border-color .2s;
 }
 .hero-form input[type="email"]::placeholder { color: #555; }
-.hero-form input[type="email"]:focus { border-color: var(--gold); }
+.hero-form input[type="email"]:focus { border-color: var(--oak); }
 .hero-form button {
-  background: var(--gold);
+  background: var(--green);
   border: none;
-  color: var(--black);
+  color: var(--white);
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
   font-weight: 700;
@@ -166,7 +171,7 @@ h1 .outline {
   transition: background .2s, transform .1s;
   white-space: nowrap;
 }
-.hero-form button:hover { background: var(--gold-dark); }
+.hero-form button:hover { background: var(--green-dark); }
 .hero-form button:active { transform: scale(0.98); }
 .hero-note {
   font-size: 12px;
@@ -210,7 +215,7 @@ h1 .outline {
 }
 
 /* DIVIDER */
-.divider { height: 4px; background: var(--gold); }
+.divider { height: 4px; background: var(--green); }
 .divider-thin { height: 1px; background: rgba(255,255,255,0.08); }
 
 /* SECTION BASE */
@@ -220,7 +225,7 @@ section { position: relative; z-index: 1; }
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--oak);
   margin-bottom: 16px;
 }
 h2 {
@@ -237,7 +242,7 @@ h2 {
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   margin-top: 60px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.04);
 }
 .service-card {
   background: var(--black);
@@ -259,19 +264,27 @@ h2 {
   margin-bottom: 12px;
 }
 .service-card p { font-size: 14px; color: #777; line-height: 1.7; }
+.service-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 24px;
+  border-radius: 4px;
+}
 .service-tag {
   display: inline-block;
   margin-top: 16px;
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--gold);
-  border-bottom: 1px solid var(--gold);
+  color: var(--green);
+  border-bottom: 1px solid var(--green);
   padding-bottom: 2px;
 }
 
 /* HOW IT WORKS */
-.hiw-section { background: #0D0D0D; }
+.hiw-section { background: #161612; }
 .hiw-steps {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -283,7 +296,7 @@ h2 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 56px;
   line-height: 1;
-  color: var(--gold);
+  color: var(--oak);
   min-width: 56px;
   opacity: 0.6;
 }
@@ -308,9 +321,9 @@ h2 {
   padding: 32px;
   transition: border-color .3s;
 }
-.testi-card:hover { border-color: var(--gold); }
+.testi-card:hover { border-color: var(--green); }
 .testi-card.featured {
-  border-color: var(--gold);
+  border-color: var(--green);
   grid-column: span 2;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -330,14 +343,14 @@ h2 {
 .testi-score {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 80px;
-  color: var(--gold);
+  color: var(--green);
   line-height: 1;
   opacity: 0.3;
   text-align: right;
 }
 
 /* ATELIERS */
-.ateliers-section { background: #0D0D0D; }
+.ateliers-section { background: #161612; }
 .ateliers-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -350,12 +363,12 @@ h2 {
   padding: 32px 24px;
   transition: transform .2s, border-color .2s;
 }
-.atelier-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+.atelier-card:hover { transform: translateY(-4px); border-color: var(--green); }
 .atelier-date {
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--oak);
   margin-bottom: 12px;
 }
 .atelier-card h3 {
@@ -382,21 +395,21 @@ h2 {
   text-decoration: none;
   transition: background .2s, border-color .2s, color .2s;
 }
-.btn-atelier:hover { background: var(--gold); border-color: var(--gold); color: var(--black); }
+.btn-atelier:hover { background: var(--green); border-color: var(--green); color: var(--white); }
 
 /* CAPTURE SECTION */
 .capture-section {
-  background: var(--gold);
+  background: var(--green);
   padding: 80px 48px;
   text-align: center;
 }
 .capture-section h2 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(36px, 5vw, 56px);
-  color: var(--black);
+  color: var(--white);
   margin-bottom: 12px;
 }
-.capture-section p { font-size: 16px; color: rgba(0,0,0,0.6); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.capture-section p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
 .capture-form {
   display: flex;
   justify-content: center;
@@ -406,21 +419,21 @@ h2 {
 }
 .capture-form input[type="email"] {
   flex: 1;
-  background: rgba(0,0,0,0.1);
-  border: 2px solid rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.2);
   border-right: none;
-  color: var(--black);
+  color: var(--white);
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;
   padding: 16px 20px;
   outline: none;
 }
-.capture-form input[type="email"]::placeholder { color: rgba(0,0,0,0.35); }
-.capture-form input[type="email"]:focus { border-color: var(--black); }
+.capture-form input[type="email"]::placeholder { color: rgba(255,255,255,0.4); }
+.capture-form input[type="email"]:focus { border-color: var(--oak); }
 .capture-form button {
-  background: var(--black);
-  border: 2px solid var(--black);
-  color: var(--gold);
+  background: var(--dark);
+  border: 2px solid var(--dark);
+  color: var(--oak);
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
   font-weight: 700;
@@ -440,12 +453,12 @@ h2 {
 }
 .capture-perks span {
   font-size: 13px;
-  color: rgba(0,0,0,0.5);
+  color: rgba(255,255,255,0.6);
   display: flex;
   align-items: center;
   gap: 6px;
 }
-.capture-perks span::before { content: "✓"; color: var(--black); font-weight: 700; }
+.capture-perks span::before { content: "✓"; color: var(--white); font-weight: 700; }
 
 /* FOOTER */
 footer {
@@ -486,7 +499,7 @@ footer {
   font-size: 12px;
   color: #333;
 }
-.footer-bottom a { color: var(--gold); text-decoration: none; }
+.footer-bottom a { color: var(--oak); text-decoration: none; }
 
 /* ANIMATIONS */
 @keyframes fadeUp {
@@ -544,7 +557,7 @@ footer {
     QU'UN GARAGE
   </h1>
   <p class="hero-sub">
-    On répare, on restaure, on personnalise. Et on vous apprend à le faire vous-même — en famille, entre amis, ou en équipe.
+    On répare, on restaure, on personnalise. Et on vous apprend à le faire vous-même en famille, entre amis, ou en équipe.
   </p>
   <div class="hero-form">
     <input type="email" placeholder="votre@email.fr" />
@@ -566,19 +579,19 @@ footer {
 
     <div class="services-grid reveal">
       <div class="service-card">
-        <span class="service-icon">🚐</span>
-        <h3>Le Van</h3>
-        <p>Notre atelier mobile se déplace chez vous. On diagnostique, on répare, on livre. Vous bougez pas, votre baby-foot revit.</p>
+        <img class="service-img" src="https://www.owentrolong.fr/imagesbabyfix/van_babyfix.png" alt="Van BabyFix à domicile">
+        <h3>L'Atelier Mobile</h3>
+        <p>Notre van se déplace chez vous. On diagnostique, on l'embarque et on répare avec vous.</p>
         <span class="service-tag">Particuliers &amp; Pros</span>
       </div>
       <div class="service-card">
-        <span class="service-icon">🔧</span>
+        <img class="service-img" src="https://www.owentrolong.fr/imagesbabyfix/reparation_a_domicile.png" alt="Garage-Lounge BabyFix">
         <h3>Le Garage-Lounge</h3>
         <p>Venez dans notre atelier. Café, bonne ambiance et nos experts à disposition. On vous guide pour tout faire vous-même.</p>
         <span class="service-tag">Ateliers le samedi</span>
       </div>
       <div class="service-card">
-        <span class="service-icon">🏢</span>
+        <img class="service-img" src="https://www.owentrolong.fr/imagesbabyfix/babyfix_reparaion_engagement.png" alt="Team Building BabyFix">
         <h3>Team Building</h3>
         <p>Votre équipe repart avec un baby-foot rénové à ses couleurs, installé dans vos locaux. L'activité qui laisse une trace.</p>
         <span class="service-tag">Sur devis</span>
@@ -605,22 +618,22 @@ footer {
       <div class="hiw-step">
         <div class="step-num">02</div>
         <div class="step-body">
-          <h4>Le Devis</h4>
-          <p>Transparent, sans surprise. On vous présente les options : réparation essentielle ou restauration complète avec personnalisation.</p>
+          <h4>La Prise en Charge</h4>
+          <p>On embarque votre baby-foot dans le van ou on vous accueille au Garage-Lounge. Pas de logistique à gérer, on s'occupe de tout.</p>
         </div>
       </div>
       <div class="hiw-step">
         <div class="step-num">03</div>
         <div class="step-body">
-          <h4>L'Intervention</h4>
-          <p>Chez vous, en atelier, ou en équipe. Nos experts s'occupent de tout — ou vous apprennent à le faire avec eux.</p>
+          <h4>La Remise en Jeu</h4>
+          <p>Réparation, restauration, personnalisation. Seul, à deux ou en équipe, on travaille ensemble jusqu'à ce que ça glisse comme il faut.</p>
         </div>
       </div>
       <div class="hiw-step">
         <div class="step-num">04</div>
         <div class="step-body">
-          <h4>La Revanche</h4>
-          <p>Le match inaugural. Parce qu'un baby-foot restauré mérite d'être inauguré en grande pompe, avec ses joueurs, ses règles et ses cris.</p>
+          <h4>Le Premier But</h4>
+          <p>Votre baby-foot retrouve sa place. Le premier tir, le premier but, le premier éclat de rire. C'est pour ça qu'on fait ce métier.</p>
         </div>
       </div>
     </div>
@@ -637,18 +650,18 @@ footer {
     <div class="testimonials-grid reveal">
       <div class="testi-card featured">
         <div>
-          <p class="testi-quote">"On cherchait une activité team building originale pour nos 25 commerciaux. Le baby-foot restauré trône maintenant dans notre salle de pause — et chaque nouveau collaborateur entend l'histoire de sa création."</p>
-          <p class="testi-author"><strong>Marc D.</strong> <span>— DRH, PME industrielle · 120 salariés</span></p>
+          <p class="testi-quote">"On cherchait une activité team building originale pour nos 25 commerciaux. Le baby-foot restauré trône maintenant dans notre salle de pause et chaque nouveau collaborateur entend l'histoire de sa création."</p>
+          <p class="testi-author"><strong>Marc D.</strong> <span>DRH, PME industrielle · 120 salariés</span></p>
         </div>
         <div class="testi-score">B2B</div>
       </div>
       <div class="testi-card">
         <p class="testi-quote">"On pensait que c'était trop compliqué. Finalement c'est devenu notre activité préférée du dimanche. Merci BABYFIX."</p>
-        <p class="testi-author"><strong>Sophie M.</strong> <span>— Lyon, restauration famille</span></p>
+        <p class="testi-author"><strong>Sophie M.</strong> <span>Lyon, restauration famille</span></p>
       </div>
       <div class="testi-card">
         <p class="testi-quote">"Un Bonzini des années 60 récupéré aux Puces, complètement restauré. Mon père pleurait quand il a vu le résultat."</p>
-        <p class="testi-author"><strong>Jean-Denis R.</strong> <span>— Roubaix, restauration vintage</span></p>
+        <p class="testi-author"><strong>Jean-Denis R.</strong> <span>Roubaix, restauration vintage</span></p>
       </div>
     </div>
   </div>
@@ -700,7 +713,7 @@ footer {
     </div>
 
     <p class="reveal" style="text-align:center; margin-top:40px; font-size:14px; color:#555;">
-      Vous souhaitez un atelier privatisé ou Team Building ? <a href="mailto:pro@babyfix.fr" style="color:var(--gold); text-decoration:none;">Écrivez-nous →</a>
+      Vous souhaitez un atelier privatisé ou Team Building ? <a href="mailto:pro@babyfix.fr" style="color:var(--oak); text-decoration:none;">Écrivez-nous →</a>
     </p>
   </div>
 </section>
@@ -709,7 +722,7 @@ footer {
 
 <!-- NEWSLETTER CAPTURE -->
 <section id="newsletter" class="capture-section">
-  <div class="section-label" style="color:rgba(0,0,0,0.4);">La newsletter mensuelle</div>
+  <div class="section-label" style="color:rgba(255,255,255,0.5);">La newsletter mensuelle</div>
   <h2>LA MI-TEMPS<br>DE BABYFIX</h2>
   <p>Chaque mois : une dose d'inspiration, un tuto technique décalé, et les plus belles restaurations de la communauté. Valeur garantie. Spam zéro.</p>
   <div class="capture-form">
@@ -747,7 +760,7 @@ footer {
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 BABYFIX — Le jeu ne s'arrête jamais.</span>
+    <span>© 2026 BABYFIX Le jeu ne s'arrête jamais.</span>
     <span><a href="#">Mentions légales</a> · <a href="#">CGU</a></span>
   </div>
 </footer>
@@ -822,7 +835,7 @@ document.querySelectorAll('button[type="submit"]').forEach(btn => {
       this.style.color = '#fff';
       input.value = '';
     } else {
-      this.textContent = '✗ Erreur — réessayez';
+      this.textContent = '✗ Erreur réessayez';
       this.style.background = '#E84040';
     }
   });
