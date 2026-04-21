@@ -752,12 +752,8 @@ footer {
   </div>
 </footer>
 
-<script>
-const BREVO_API_KEY = "YOUR_API_KEY_HERE"; // Replace with actual API key
-const BREVO_LIST_ID = 6;
-
-async function subscribeToBrevo(email, buttonEl) {
-  const originalText = buttonEl.textContent;
+<script src="config.js"></script>
+<script>`nasync function subscribeToBrevo(email, buttonEl) {`n  const originalText = buttonEl.textContent;
   buttonEl.textContent = '⏳ Inscription...';
   buttonEl.disabled = true;
 
