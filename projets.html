@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="portfolio.css"/>
   <style>
 
-    /* ── HERO PAGE PROJETS ──────────────────────────────────────────── */
+    /* ── HERO ───────────────────────────────────────────────────────── */
     .projets-page-hero {
       padding: calc(var(--nav-h) + 5rem) 0 3rem;
     }
@@ -59,171 +59,369 @@
       font-size: .8rem;
       color: var(--gris);
       margin-top: 2rem;
-      margin-bottom: -.5rem;
+      margin-bottom: 1.5rem;
       font-family: var(--font-corps);
       letter-spacing: .04em;
     }
     .projets-count span { color: var(--noir); font-weight: 600; }
 
-    /* ── GRILLE ─────────────────────────────────────────────────────── */
-    .all-projets-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      padding: 2rem 0 6rem;
+    /* ─────────────────────────────────────────────────────────────────
+       MASONRY — CSS columns
+       Chaque image garde son ratio naturel, les colonnes s'équilibrent
+    ───────────────────────────────────────────────────────────────── */
+    .masonry-grid {
+      columns: 3;
+      column-gap: 1.2rem;
+      padding-bottom: 6rem;
     }
 
-    /* ── CARTE ──────────────────────────────────────────────────────── */
-    .p-card {
+    /* Chaque carte ne doit pas être coupée entre deux colonnes */
+    .m-card {
+      break-inside: avoid;
+      margin-bottom: 1.2rem;
       background: var(--blanc-pur);
       border: 1px solid var(--gris-bd);
       border-radius: var(--radius);
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
       transition: transform .25s, box-shadow .25s, border-color .25s;
+      cursor: default;
+      display: block; /* pas flex — on laisse l'image dicter la hauteur */
     }
-    .p-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 60px rgba(0,0,0,.08);
+    .m-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,.1);
       border-color: var(--bleu);
     }
 
-    /* Vedette — pleine largeur + disposition horizontale */
-    .p-card.is-featured {
-      grid-column: span 3;
-      flex-direction: row;
-      background: var(--noir);
-      border-color: var(--noir);
-      color: #fff;
-    }
-    .p-card.is-featured:hover { border-color: var(--bleu); }
-
-    /* ── VISUEL ─────────────────────────────────────────────────────── */
-    .p-card-visual {
-      height: 200px;
-      overflow: hidden;
-      background: var(--blanc);
-      flex-shrink: 0;
-      position: relative;
-    }
-    .p-card.is-featured .p-card-visual {
-      height: auto;
-      width: 42%;
-      min-height: 300px;
-    }
-    .p-card-visual img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center top;
+    /* ── IMAGE — ratio naturel, jamais recadré ──────────────────────── */
+    .m-card-img {
       display: block;
+      width: 100%;
+      height: auto;        /* ← clé : hauteur libre = ratio préservé */
       transition: transform .4s;
     }
-    .p-card:hover .p-card-visual img { transform: scale(1.04); }
-    .p-card-visual-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.5rem; opacity: .2;
+    .m-card:hover .m-card-img { transform: scale(1.02); }
+
+    /* Wrapper overflow pour l'effet zoom au hover */
+    .m-card-visual {
+      overflow: hidden;
+      background: var(--blanc);
+      line-height: 0; /* supprime l'espace sous l'image */
     }
 
-    /* ── CORPS ──────────────────────────────────────────────────────── */
-    .p-card-body {
-      padding: 1.6rem 1.8rem;
-      display: flex; flex-direction: column; flex: 1;
+    /* ── INFOS SOUS L'IMAGE ─────────────────────────────────────────── */
+    .m-card-body {
+      padding: 1rem 1.2rem 1.2rem;
     }
-    .p-card-meta {
-      display: flex; align-items: center;
-      gap: .7rem; margin-bottom: 1rem; flex-wrap: wrap;
+    .m-card-meta {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: .5rem;
+      flex-wrap: wrap;
     }
-    .p-card-cat {
-      font-size: .68rem; font-weight: 600;
-      letter-spacing: .12em; text-transform: uppercase;
+    .m-card-cat {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
       color: var(--gris);
     }
-    .p-card.is-featured .p-card-cat { color: rgba(255,255,255,.45); }
-
-    .p-card-year {
-      font-size: .75rem; color: var(--gris); margin-left: auto;
+    .m-card-year {
+      font-size: .72rem;
+      color: var(--gris);
+      margin-left: auto;
     }
-    .p-card.is-featured .p-card-year { color: rgba(255,255,255,.35); }
-
-    .p-card-badge {
-      font-size: .68rem; padding: .2rem .65rem; border-radius: 100px;
-      border: 1px solid var(--bleu); color: var(--bleu);
-      font-weight: 600; background: rgba(0,151,178,.08);
+    .m-card-badge {
+      font-size: .65rem;
+      padding: .15rem .55rem;
+      border-radius: 100px;
+      border: 1px solid var(--bleu);
+      color: var(--bleu);
+      font-weight: 600;
+      background: rgba(0,151,178,.07);
     }
-
-    .p-card h3 {
-      font-family: var(--font-titre); font-size: 1.1rem;
-      font-weight: 700; line-height: 1.25;
-      margin-bottom: .8rem; color: var(--noir);
+    .m-card h3 {
+      font-family: var(--font-titre);
+      font-size: .95rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--noir);
+      margin-bottom: .4rem;
     }
-    .p-card.is-featured h3 { font-size: 1.4rem; color: #fff; }
-
-    .p-card-desc {
-      font-size: .86rem; color: var(--gris);
-      line-height: 1.75; flex: 1; margin-bottom: 1.2rem;
+    .m-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem;
+      margin-top: .6rem;
     }
-    .p-card.is-featured .p-card-desc { color: rgba(255,255,255,.5); }
-
-    .p-card-tags {
-      display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1.1rem;
-    }
-    .p-card-tags span {
-      font-size: .7rem; padding: .18rem .55rem; border-radius: 4px;
-      background: var(--blanc); border: 1px solid var(--gris-bd); color: var(--gris);
-    }
-    .p-card.is-featured .p-card-tags span {
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.15);
-      color: rgba(255,255,255,.6);
+    .m-card-tags span {
+      font-size: .67rem;
+      padding: .15rem .5rem;
+      border-radius: 4px;
+      background: var(--blanc);
+      border: 1px solid var(--gris-bd);
+      color: var(--gris);
     }
 
-    .p-card-result {
-      display: flex; align-items: flex-start; gap: .55rem;
-      font-size: .81rem; color: var(--bleu-dk); margin-top: auto;
+    /* ── CARTE VEDETTE — fond noir, pleine largeur colonne ──────────── */
+    .m-card.is-featured {
+      background: var(--noir);
+      border-color: var(--noir);
+      column-span: all;      /* traverse les 3 colonnes */
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 1.2rem;
     }
-    .p-card.is-featured .p-card-result { color: var(--bleu); }
-    .p-card-result .result-icon {
-      width: 18px; height: 18px; border-radius: 50%;
-      background: var(--bleu); color: var(--noir);
+    .m-card.is-featured:hover { border-color: var(--bleu); }
+    .m-card.is-featured .m-card-visual {
+      width: 40%;
+      flex-shrink: 0;
+    }
+    .m-card.is-featured .m-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .m-card.is-featured .m-card-body {
+      padding: 2rem 2.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .m-card.is-featured .m-card-cat { color: rgba(255,255,255,.4); }
+    .m-card.is-featured .m-card-year { color: rgba(255,255,255,.3); }
+    .m-card.is-featured h3 {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: .8rem;
+    }
+    .m-card.is-featured .m-card-desc {
+      font-size: .87rem;
+      color: rgba(255,255,255,.5);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .m-card.is-featured .m-card-tags span {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.14);
+      color: rgba(255,255,255,.55);
+    }
+    .m-card-result {
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+      font-size: .81rem;
+      color: var(--bleu);
+      margin-top: 1rem;
+    }
+    .m-card-result .result-icon {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--bleu);
+      color: var(--noir);
       display: flex; align-items: center; justify-content: center;
-      font-size: .6rem; flex-shrink: 0; margin-top: 2px; font-weight: 700;
+      font-size: .6rem; flex-shrink: 0; font-weight: 700;
     }
 
     /* ── CARTE CTA ──────────────────────────────────────────────────── */
-    .p-card-cta {
-      background: var(--bleu-pale) !important;
-      border: 2px dashed rgba(0,151,178,.25) !important;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: flex-start;
-      gap: 1rem; padding: 2rem; min-height: 220px;
+    .m-card.m-cta {
+      background: var(--bleu-pale);
+      border: 2px dashed rgba(0,151,178,.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: .8rem;
+      padding: 2rem;
+      min-height: 180px;
     }
-    .p-card-cta:hover { border-color: var(--bleu) !important; }
-    .p-card-cta .add-icon { font-size: 2.5rem; color: var(--bleu-dk); font-weight: 300; line-height: 1; }
-    .p-card-cta h3 { font-family: var(--font-titre); font-size: 1rem; font-weight: 700; color: var(--noir); }
-    .p-card-cta p { font-size: .84rem; color: var(--gris); }
+    .m-card.m-cta:hover { border-color: var(--bleu); }
+    .m-card.m-cta .add-icon { font-size: 2rem; color: var(--bleu-dk); font-weight: 300; }
+    .m-card.m-cta h3 { font-family: var(--font-titre); font-size: .95rem; font-weight: 700; color: var(--noir); }
+    .m-card.m-cta p { font-size: .82rem; color: var(--gris); }
 
-    /* ── ANIMATION FILTRE ───────────────────────────────────────────── */
+    /* ── ANIMATION ──────────────────────────────────────────────────── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
+      from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+    .m-card { animation: fadeUp .4s ease both; }
+
+    /* ── NAV LIEN ACTIF ─────────────────────────────────────────────── */
+    .nav-links a.active { color: var(--noir); font-weight: 500; }
 
     /* ── RESPONSIVE ─────────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .all-projets-grid { grid-template-columns: 1fr 1fr; }
-      .p-card.is-featured { grid-column: span 2; flex-direction: column; }
-      .p-card.is-featured .p-card-visual { width: 100%; height: 220px; min-height: unset; }
+      .masonry-grid { columns: 2; }
+      .m-card.is-featured {
+        column-span: all;
+        flex-direction: column;
+      }
+      .m-card.is-featured .m-card-visual {
+        width: 100%;
+        max-height: 260px;
+        overflow: hidden;
+      }
+      .m-card.is-featured .m-card-img {
+        height: 100%;
+        object-fit: cover;
+      }
     }
     @media (max-width: 580px) {
-      .all-projets-grid { grid-template-columns: 1fr; }
-      .p-card.is-featured { grid-column: span 1; }
+      .masonry-grid { columns: 1; }
     }
 
-    /* Lien actif nav */
-    .nav-links a.active { color: var(--noir); font-weight: 500; }
 
+    /* ── CURSEUR POINTEUR sur les cartes cliquables ─────────────────── */
+    .m-card.is-clickable { cursor: pointer; }
+
+    /* ── MODALE ─────────────────────────────────────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(13,13,13,.78);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal-box {
+      background: var(--blanc-pur);
+      border-radius: calc(var(--radius) * 1.5);
+      overflow: hidden;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: row;
+      box-shadow: 0 40px 120px rgba(0,0,0,.3);
+      transform: translateY(28px) scale(.96);
+      transition: transform .38s cubic-bezier(.22,1,.36,1);
+    }
+    .modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
+
+    .modal-img-col {
+      width: 46%;
+      flex-shrink: 0;
+      background: var(--blanc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .modal-img-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      padding: 1.2rem;
+      box-sizing: border-box;
+    }
+
+    .modal-content-col {
+      flex: 1;
+      overflow-y: auto;
+      padding: 2.4rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-close {
+      align-self: flex-end;
+      background: none;
+      border: 1px solid var(--gris-bd);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: var(--gris);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, color .2s, border-color .2s;
+      margin-bottom: 1.4rem;
+      flex-shrink: 0;
+    }
+    .modal-close:hover { background: var(--noir); color: #fff; border-color: var(--noir); }
+
+    .modal-meta {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: .6rem;
+      flex-wrap: wrap;
+    }
+    .modal-cat {
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gris);
+    }
+    .modal-year {
+      font-size: .72rem;
+      color: var(--gris);
+      margin-left: auto;
+    }
+    .modal-title {
+      font-family: var(--font-titre);
+      font-size: 1.45rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--noir);
+      margin-bottom: 1rem;
+    }
+    .modal-desc {
+      font-family: var(--font-corps);
+      font-size: .88rem;
+      color: var(--gris);
+      line-height: 1.82;
+      margin-bottom: 1.4rem;
+      flex: 1;
+    }
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-bottom: 1.4rem;
+    }
+    .modal-tags span {
+      font-size: .7rem;
+      padding: .2rem .6rem;
+      border-radius: 4px;
+      background: var(--blanc);
+      border: 1px solid var(--gris-bd);
+      color: var(--gris);
+    }
+    .modal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-family: var(--font-corps);
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--noir);
+      text-decoration: none;
+      border: 1px solid var(--noir);
+      padding: .5rem 1.1rem;
+      border-radius: 100px;
+      transition: background .2s, color .2s;
+      width: fit-content;
+      margin-top: auto;
+    }
+    .modal-link:hover { background: var(--noir); color: var(--blanc-pur); }
+
+    @media (max-width: 640px) {
+      .modal-box { flex-direction: column; max-height: 95vh; }
+      .modal-img-col { width: 100%; max-height: 55vw; }
+      .modal-img-col img { padding: .8rem; }
+      .modal-content-col { padding: 1.4rem 1.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -263,216 +461,222 @@
   </div>
 </section>
 
-<!-- GRILLE -->
+<!-- MASONRY -->
 <section class="section" style="padding-top:0">
   <div class="container">
     <p class="projets-count"><span id="count-visible">10</span> projet(s) affiché(s)</p>
-    <div class="all-projets-grid" id="all-projets-grid">
 
-      <!-- ★ VEDETTE — Ligue HDF Badminton -->
-      <article class="p-card is-featured reveal" data-category="communication">
-        <div class="p-card-visual">
-          <img src="images/Echecsdepartementalfeminin.jpg" alt="Ligue HDF Badminton"
-               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>🏸</div>'"/>
+    <div class="masonry-grid" id="masonry-grid">
+
+      <!-- ★ VEDETTE pleine largeur — Ligue HDF -->
+      <article class="m-card is-featured reveal" data-category="communication">
+        <div class="m-card-visual">
+          <img class="m-card-img" src="images/Echecsdepartementalfeminin.jpg" alt="Ligue HDF Badminton"
+               onerror="this.style.display='none'"/>
         </div>
-        <div class="p-card-body">
-          <div class="p-card-meta">
-            <span class="p-card-cat">Communication</span>
-            <span class="p-card-badge">★ Alternance</span>
-            <span class="p-card-year">2025–2026</span>
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Communication</span>
+            <span class="m-card-badge">★ Alternance</span>
+            <span class="m-card-year">2025–2026</span>
           </div>
           <h3>Identité visuelle & communication<br/>Ligue HDF Badminton</h3>
-          <p class="p-card-desc">En alternance à la Ligue Hauts-de-France de Badminton, j'ai pris en charge l'ensemble de la communication visuelle : affiches d'événements, newsletters, visuels promotionnels pour les tournois régionaux. Travail de cohérence éditoriale et graphique sur tous les supports.</p>
-          <div class="p-card-tags">
-            <span>Suite Adobe</span><span>Illustrator</span><span>Photoshop</span><span>Newsletter</span><span>Motion design</span><span>Réseaux sociaux</span>
+          <p class="m-card-desc">En alternance à la Ligue Hauts-de-France de Badminton, j'ai pris en charge l'ensemble de la communication visuelle : affiches d'événements, newsletters, visuels promotionnels pour les tournois régionaux.</p>
+          <div class="m-card-tags">
+            <span>Suite Adobe</span><span>Illustrator</span><span>Photoshop</span><span>Newsletter</span><span>Motion design</span>
           </div>
-          <div class="p-card-result">
+          <div class="m-card-result">
             <span class="result-icon">✓</span>
-            Communication unifiée sur tous les canaux · Affiches diffusées à l'échelle régionale
-          </div>
-        </div>
-      </article>
-
-      <!-- Gottaphish -->
-      <article class="p-card reveal" data-category="dev">
-        <div class="p-card-visual">
-          <img src="images/Couverturewebhtmlcss.jpeg" alt="Gottaphish"
-               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>💻</div>'"/>
-        </div>
-        <div class="p-card-body">
-          <div class="p-card-meta">
-            <span class="p-card-cat">Développement web</span>
-            <span class="p-card-year">2025</span>
-          </div>
-          <h3>Modules cybersécurité<br/>Gottaphish</h3>
-          <p class="p-card-desc">Stage de développement web axé sur la création de modules pédagogiques autour du phishing et de la sécurité informatique. Montée en compétences autonome sur de nouveaux langages.</p>
-          <div class="p-card-tags">
-            <span>HTML / CSS</span><span>JavaScript</span><span>Cybersécurité</span><span>UX pédagogique</span>
-          </div>
-          <div class="p-card-result">
-            <span class="result-icon">✓</span>
-            Montée en compétences rapide · Autonomie renforcée
+            Communication unifiée sur tous les canaux de la Ligue
           </div>
         </div>
       </article>
 
       <!-- Affiche de tournoi -->
-      <article class="p-card reveal" data-category="design communication">
-        <div class="p-card-visual">
-          <img src="images/Affiche de tournoi.jpg" alt="Affiche Tournoi"
-               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>🎨</div>'"/>
+      <article class="m-card reveal is-clickable" data-category="design communication" data-desc="Conception d'affiches promotionnelles pour les tournois régionaux de la Ligue HDF de Badminton. Travail sur la hiérarchie visuelle, la lisibilité à distance et le respect de la charte graphique, pour un usage aussi bien print que digital." data-link="">
+        <div class="m-card-visual">
+          <img class="m-card-img" src="images/Affiche de tournoi.jpg" alt="Affiche Tournoi"
+               onerror="this.style.display='none'"/>
         </div>
-        <div class="p-card-body">
-          <div class="p-card-meta">
-            <span class="p-card-cat">Design · Communication</span>
-            <span class="p-card-year">2025</span>
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Design · Communication</span>
+            <span class="m-card-year">2025</span>
           </div>
           <h3>Affiche de tournoi<br/>Badminton HDF</h3>
-          <p class="p-card-desc">Conception d'affiches promotionnelles pour les tournois régionaux. Respect de la charte graphique de la Ligue tout en apportant une touche dynamique pour les supports print et digital.</p>
-          <div class="p-card-tags">
-            <span>Illustrator</span><span>InDesign</span><span>Print</span><span>Digital</span>
+          <div class="m-card-tags">
+            <span>Illustrator</span><span>InDesign</span><span>Print</span>
           </div>
         </div>
       </article>
 
       <!-- Affiche Stage -->
-      <article class="p-card reveal" data-category="design communication">
-        <div class="p-card-visual">
-          <img src="images/Affiche Stage.png" alt="Affiche Stage"
-               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>📌</div>'"/>
+      <article class="m-card reveal is-clickable" data-category="design communication" data-desc="Création d'une affiche pour un stage sportif. L'objectif était de rendre l'information claire et attractive pour un public amateur, en adaptant les codes visuels du sport à un format d'affichage standard." data-link="">
+        <div class="m-card-visual">
+          <img class="m-card-img" src="images/Affiche Stage.png" alt="Affiche Stage"
+               onerror="this.style.display='none'"/>
         </div>
-        <div class="p-card-body">
-          <div class="p-card-meta">
-            <span class="p-card-cat">Design · Communication</span>
-            <span class="p-card-year">2025</span>
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Design · Communication</span>
+            <span class="m-card-year">2025</span>
           </div>
           <h3>Affiche de stage<br/>Communication sportive</h3>
-          <p class="p-card-desc">Création d'une affiche pour un stage sportif. Adaptation aux codes visuels du sport amateur et mise en valeur des informations clés.</p>
-          <div class="p-card-tags">
-            <span>Photoshop</span><span>Illustrator</span><span>Com' événementielle</span>
+          <div class="m-card-tags">
+            <span>Photoshop</span><span>Illustrator</span><span>Print</span>
           </div>
         </div>
       </article>
 
       <!-- Logo Vagabonda -->
-      <article class="p-card reveal" data-category="design">
-        <div class="p-card-visual">
-          <img src="images/Logovagabonda.jpg" alt="Logo Vagabonda"
-               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>✏️</div>'"/>
+      <article class="m-card reveal is-clickable" data-category="design" data-desc="Conception d'une identité visuelle complète pour la marque fictive Vagabonda, axée sur l'univers du voyage et de l'aventure. Travail approfondi sur la symbolique, le choix typographique et la déclinaison de la marque sur différents supports." data-link="">
+        <div class="m-card-visual">
+          <img class="m-card-img" src="images/Logovagabonda.jpg" alt="Logo Vagabonda"
+               onerror="this.style.display='none'"/>
         </div>
-        <div class="p-card-body">
-          <div class="p-card-meta">
-            <span class="p-card-cat">Design · Branding</span>
-            <span class="p-card-year">Académique</span>
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Design · Branding</span>
+            <span class="m-card-year">Académique</span>
           </div>
           <h3>Logo Vagabonda</h3>
-          <p class="p-card-desc">Identité visuelle complète pour la marque fictive Vagabonda. Univers du voyage et de l'aventure, travail sur la symbolique et la typographie.</p>
-          <div class="p-card-tags">
-            <span>Illustrator</span><span>Brand identity</span><span>Typographie</span>
+          <div class="m-card-tags">
+            <span>Illustrator</span><span>Brand identity</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Gottaphish -->
+      <article class="m-card reveal is-clickable" data-category="dev" data-desc="Stage chez Gottaphish dédié au développement de modules pédagogiques sur le phishing et la cybersécurité. Montée en compétences autonome sur de nouveaux langages et frameworks, avec un focus sur l'expérience utilisateur pédagogique." data-link="https://gottaphish.com">
+        <div class="m-card-visual">
+          <img class="m-card-img" src="images/Couverturewebhtmlcss.jpeg" alt="Gottaphish"
+               onerror="this.style.display='none'"/>
+        </div>
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Développement web</span>
+            <span class="m-card-year">2025</span>
+          </div>
+          <h3>Modules cybersécurité<br/>Gottaphish</h3>
+          <div class="m-card-tags">
+            <span>HTML / CSS</span><span>JavaScript</span><span>Cybersécurité</span>
           </div>
         </div>
       </article>
 
       <!-- Bannière Ironway -->
-      <article class="p-card reveal" data-category="design">
-        <div class="p-card-visual">
-          <img src="images/banniereironway.jpg" alt="Ironway"
-               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>🔩</div>'"/>
+      <article class="m-card reveal is-clickable" data-category="design" data-desc="Conception d'une bannière promotionnelle pour la marque fictive Ironway, positionnée sur un univers industriel et masculin. Travail sur la composition, la typographie impactante et la hiérarchie visuelle pour capter l'attention rapidement." data-link="">
+        <div class="m-card-visual">
+          <img class="m-card-img" src="images/banniereironway.jpg" alt="Ironway"
+               onerror="this.style.display='none'"/>
         </div>
-        <div class="p-card-body">
-          <div class="p-card-meta">
-            <span class="p-card-cat">Design</span>
-            <span class="p-card-year">Académique</span>
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Design</span>
+            <span class="m-card-year">Académique</span>
           </div>
           <h3>Bannière Ironway</h3>
-          <p class="p-card-desc">Bannière promotionnelle pour la marque fictive Ironway, univers industriel. Travail sur la hiérarchie visuelle et l'impact graphique immédiat.</p>
-          <div class="p-card-tags">
-            <span>Photoshop</span><span>Brand design</span><span>Bannière digitale</span>
+          <div class="m-card-tags">
+            <span>Photoshop</span><span>Brand design</span>
           </div>
         </div>
       </article>
 
       <!-- Livre sensorielle -->
-      <article class="p-card reveal" data-category="design">
-        <div class="p-card-visual">
-          <img src="images/Mockup 1ere couverture livre sensorielle.png" alt="Livre sensorielle"
-               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>📖</div>'"/>
+      <article class="m-card reveal is-clickable" data-category="design" data-desc="Design de la couverture d'un livre sensorielle dans le cadre d'un projet académique. Exploration des textures visuelles, du jeu typographique et de la composition pour créer une expérience visuelle immersive dès la première de couverture." data-link="">
+        <div class="m-card-visual">
+          <img class="m-card-img" src="images/Mockup 1ere couverture livre sensorielle.png" alt="Livre sensorielle"
+               onerror="this.style.display='none'"/>
         </div>
-        <div class="p-card-body">
-          <div class="p-card-meta">
-            <span class="p-card-cat">Design éditorial</span>
-            <span class="p-card-year">Académique</span>
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Design éditorial</span>
+            <span class="m-card-year">Académique</span>
           </div>
           <h3>Couverture livre sensorielle</h3>
-          <p class="p-card-desc">Design d'une couverture de livre sensorielle. Textures, typographie et composition pour une expérience visuelle immersive.</p>
-          <div class="p-card-tags">
-            <span>InDesign</span><span>Photoshop</span><span>Design éditorial</span><span>Mockup</span>
+          <div class="m-card-tags">
+            <span>InDesign</span><span>Photoshop</span><span>Mockup</span>
           </div>
         </div>
       </article>
 
       <!-- Photo Mystère -->
-      <article class="p-card reveal" data-category="audiovisuel">
-        <div class="p-card-visual">
-          <img src="images/TROLONG_Owen_MYSTÈRE version2.jpg" alt="Photographie Mystère"
-               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>📷</div>'"/>
+      <article class="m-card reveal is-clickable" data-category="audiovisuel" data-desc="Série photographique académique autour de la thématique du mystère. Travail sur la mise en scène, la lumière naturelle et artificielle, et la postproduction sous Lightroom et Photoshop pour créer une atmosphère onirique et suspendue." data-link="">
+        <div class="m-card-visual">
+          <img class="m-card-img" src="images/TROLONG_Owen_MYSTÈRE version2.jpg" alt="Photographie Mystère"
+               onerror="this.style.display='none'"/>
         </div>
-        <div class="p-card-body">
-          <div class="p-card-meta">
-            <span class="p-card-cat">Audiovisuel · Photographie</span>
-            <span class="p-card-year">Académique</span>
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Audiovisuel · Photo</span>
+            <span class="m-card-year">Académique</span>
           </div>
           <h3>Photographie – Mystère</h3>
-          <p class="p-card-desc">Série photographique autour de la thématique du mystère. Lumière, mise en scène et postproduction pour créer une atmosphère singulière.</p>
-          <div class="p-card-tags">
-            <span>Photographie</span><span>Lightroom</span><span>Photoshop</span><span>Mise en scène</span>
+          <div class="m-card-tags">
+            <span>Photographie</span><span>Lightroom</span><span>Mise en scène</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Photo Portrait -->
+      <article class="m-card reveal is-clickable" data-category="audiovisuel perso" data-desc="Projet de portrait photographique personnel explorant la direction artistique et la retouche numérique. Recherche d'un équilibre entre réalisme et esthétique soignée." data-link="">
+        <div class="m-card-visual">
+          <img class="m-card-img" src="images/TROLONG_Owen_2_modifiée.jpg" alt="Portrait"
+               onerror="this.style.display='none'"/>
+        </div>
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Audiovisuel · Perso</span>
+            <span class="m-card-year">Personnel</span>
+          </div>
+          <h3>Portrait – Direction artistique</h3>
+          <div class="m-card-tags">
+            <span>Photographie</span><span>Retouche</span>
           </div>
         </div>
       </article>
 
       <!-- Pendaison -->
-      <article class="p-card reveal" data-category="audiovisuel perso">
-        <div class="p-card-visual">
-          <img src="images/Pendaison.jpg" alt="Pendaison"
-               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>🎭</div>'"/>
+      <article class="m-card reveal is-clickable" data-category="audiovisuel perso" data-desc="Création photographique personnelle à fort caractère narratif. Ce projet explore l'image comme vecteur d'émotion brute, en jouant sur la mise en scène minimaliste et le symbolisme visuel pour raconter une histoire sans mot." data-link="">
+        <div class="m-card-visual">
+          <img class="m-card-img" src="images/Pendaison.jpg" alt="Pendaison"
+               onerror="this.style.display='none'"/>
         </div>
-        <div class="p-card-body">
-          <div class="p-card-meta">
-            <span class="p-card-cat">Audiovisuel · Perso</span>
-            <span class="p-card-year">Personnel</span>
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Audiovisuel · Perso</span>
+            <span class="m-card-year">Personnel</span>
           </div>
           <h3>Pendaison – Création artistique</h3>
-          <p class="p-card-desc">Projet photographique personnel à fort caractère narratif. Exploration de l'image comme vecteur d'émotion et de storytelling visuel.</p>
-          <div class="p-card-tags">
-            <span>Photographie</span><span>Direction artistique</span><span>Narration visuelle</span>
+          <div class="m-card-tags">
+            <span>Photographie</span><span>Direction artistique</span>
           </div>
         </div>
       </article>
 
       <!-- Logo OT -->
-      <article class="p-card reveal" data-category="design perso">
-        <div class="p-card-visual">
-          <img src="images/Logo ot.png" alt="Logo OT"
-               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>🔖</div>'"/>
+      <article class="m-card reveal is-clickable" data-category="design perso" data-desc="Conception de mon identité visuelle personnelle : le logo OT. Utilisé sur l'ensemble de mes supports de communication — portfolio, réseaux professionnels, CV. Parti pris épuré, mémorable et déclinable sur tous les formats." data-link="https://owentrolong.fr">
+        <div class="m-card-visual">
+          <img class="m-card-img" src="images/Logo ot.png" alt="Logo OT"
+               onerror="this.style.display='none'"/>
         </div>
-        <div class="p-card-body">
-          <div class="p-card-meta">
-            <span class="p-card-cat">Branding personnel</span>
-            <span class="p-card-year">2025</span>
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Branding personnel</span>
+            <span class="m-card-year">2025</span>
           </div>
-          <h3>Logo Owen Trolong<br/>Identité personnelle</h3>
-          <p class="p-card-desc">Conception de mon identité visuelle personnelle utilisée sur tous mes supports : portfolio, réseaux sociaux, CV. Design épuré et mémorable.</p>
-          <div class="p-card-tags">
-            <span>Illustrator</span><span>Branding</span><span>Identité personnelle</span>
+          <h3>Logo Owen Trolong</h3>
+          <div class="m-card-tags">
+            <span>Illustrator</span><span>Identité personnelle</span>
           </div>
         </div>
       </article>
 
       <!-- CTA -->
-      <article class="p-card p-card-cta reveal" data-category="all">
+      <article class="m-card m-cta reveal" data-category="all">
         <div class="add-icon">+</div>
         <h3>Vos futurs projets ensemble</h3>
-        <p>Disponible dès juillet 2026 pour contribuer à vos projets de communication.</p>
+        <p>Disponible dès juillet 2026 pour contribuer à vos projets.</p>
         <a href="index.html#contact" class="btn-main small">Me contacter →</a>
       </article>
 
@@ -489,29 +693,51 @@
   </div>
 </footer>
 
+
+<!-- MODALE PROJET -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-label="Détail projet">
+  <div class="modal-box" id="modal-box">
+    <div class="modal-img-col">
+      <img id="modal-img" src="" alt=""/>
+    </div>
+    <div class="modal-content-col">
+      <button class="modal-close" id="modal-close" aria-label="Fermer">✕</button>
+      <div class="modal-meta">
+        <span class="modal-cat" id="modal-cat"></span>
+        <span class="modal-year" id="modal-year"></span>
+      </div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-tags" id="modal-tags"></div>
+      <a class="modal-link" id="modal-link" href="#" target="_blank" rel="noopener" style="display:none">
+        Voir le projet ↗
+      </a>
+    </div>
+  </div>
+</div>
 <script src="portfolio.js"></script>
 <script>
   // ── FILTRES ──────────────────────────────────────────────────────────────
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards      = document.querySelectorAll('.m-card[data-category]');
   const countEl   = document.getElementById('count-visible');
- 
+
   function updateCount() {
     const visible = [...cards].filter(c => c.style.display !== 'none').length;
     countEl.textContent = visible;
   }
- 
+
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
- 
+
       cards.forEach((card, i) => {
         const cats  = card.dataset.category || '';
         const isCta = card.classList.contains('m-cta');
         const show  = filter === 'all' || cats.includes(filter) || isCta;
- 
+
         if (show) {
           card.style.display = '';
           card.style.animation = 'none';
@@ -521,12 +747,73 @@
           card.style.display = 'none';
         }
       });
- 
+
       updateCount();
     });
   });
- 
+
   updateCount();
+
+  // ── MODALE ───────────────────────────────────────────────────────────────
+  const overlay   = document.getElementById('modal-overlay');
+  const modalImg  = document.getElementById('modal-img');
+  const modalCat  = document.getElementById('modal-cat');
+  const modalYear = document.getElementById('modal-year');
+  const modalTitle= document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalTags = document.getElementById('modal-tags');
+  const modalLink = document.getElementById('modal-link');
+  const btnClose  = document.getElementById('modal-close');
+
+  function openModal(card) {
+    const img   = card.querySelector('.m-card-img');
+    const h3    = card.querySelector('h3');
+    const cat   = card.querySelector('.m-card-cat');
+    const year  = card.querySelector('.m-card-year');
+    const tags  = card.querySelectorAll('.m-card-tags span');
+    const desc  = card.dataset.desc  || '';
+    const link  = card.dataset.link  || '';
+
+    modalImg.src      = img  ? img.src  : '';
+    modalImg.alt      = img  ? img.alt  : '';
+    modalCat.textContent  = cat  ? cat.textContent  : '';
+    modalYear.textContent = year ? year.textContent : '';
+    modalTitle.innerHTML  = h3   ? h3.innerHTML     : '';
+    modalDesc.textContent = desc;
+
+    modalTags.innerHTML = '';
+    tags.forEach(t => {
+      const s = document.createElement('span');
+      s.textContent = t.textContent;
+      modalTags.appendChild(s);
+    });
+
+    if (link) {
+      modalLink.href = link;
+      modalLink.style.display = '';
+    } else {
+      modalLink.style.display = 'none';
+    }
+
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Clic sur une carte cliquable
+  document.querySelectorAll('.m-card.is-clickable').forEach(card => {
+    card.addEventListener('click', () => openModal(card));
+  });
+
+  // Fermeture
+  btnClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
 </script>
 </body>
 </html>
