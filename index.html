@@ -1,56 +1,362 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="images/Logo ot.png">
-  <meta name="description" content="Bienvenue sur le portfolio de Owen Trolong – étudiant médias numériques. Cliquez pour découvrir mes projets en web design, graphisme et audiovisuel.">
-  <meta name="keywords" content="Owen Trolong, étudiant médias numériques, portfolio, site web, communication, web design, graphisme, audiovisuel">
-  <meta name="author" content="Owen Trolong">
-  <title>TROLONG Owen</title>
-
-  <!-- CSS -->
-  <link rel="canonical" href="https://owentrolong.fr/">
-
-  <link rel="stylesheet" href="ressources/style3.css">
-  <link rel="stylesheet" href="ressources/style4.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- JS -->
-  <script src="ressources/script.js" defer></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Owen Trolong – Communication & Création</title>
+  <meta name="description" content="Portfolio d'Owen Trolong, étudiant en communication à l'EFAP. Recherche alternance 2026-2028."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="portfolio.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("eWy3l2gdNJkDMxL-B");
+  </script>
 </head>
 <body>
 
-  <!-- Bandeau défilant en haut -->
-    <div class="scroll-container">
-        <div class="scroll-track">
-            <span>
-            📣 Disponible pour une alternance dès septembre 2025 · Communication · UX/UI Design · Créatif · Curieux · Autonome · Persévérant · Contactez-moi ! ·
-            </span>
-            <span>
-            📣 Disponible pour une alternance dès septembre 2025 · Communication · UX/UI Design · Créatif · Curieux · Autonome · Persévérant · Contactez-moi ! ·
-            </span>
-        </div>
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursor-follower"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">OT<span class="dot">.</span></a>
+  <div class="nav-links">
+    <a href="#about">À propos</a>
+    <a href="#projets">Projets</a>
+    <a href="#parcours">Parcours</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Recruter →</a>
+  <button class="nav-burger" id="burger"><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag reveal">
+      <span class="tag-dot"></span>
+      Disponible dès juillet 2026 · Alternance 2 ans
     </div>
 
-  <!-- Section principale -->
-  <main class="hero-section">
-    <h1 class="title">TROLONG Owen</h1>
-    <a href="accueil.html" class="btn-entrer">Découvrez Moi !</a>
-  </main>
+    <h1 class="hero-title reveal">
+      <span class="line">Owen</span>
+      <span class="line italic">Trolong</span>
+    </h1>
 
-  <!-- Bandeau défilant en bas -->
-    <div class="scroll-container">
-        <div class="scroll-track">
-            <span>
-            Créatif · Curieux · Autonome · Persévérant · Contactez-moi ! · 📣 Disponible pour une alternance dès septembre 2025 · Communication · Graphisme · UX/UI · Marketing digital ·
-            </span>
-            <span>
-            Créatif · Curieux · Autonome · Persévérant · Contactez-moi ! · 📣 Disponible pour une alternance dès septembre 2025 · Communication · Graphisme · UX/UI · Marketing digital ·
-            </span>
-        </div>
+    <div class="hero-sub reveal">
+      <div class="hero-sub-line">Communication</div>
+      <div class="hero-sub-sep">×</div>
+      <div class="hero-sub-line">Digital</div>
+      <div class="hero-sub-sep">×</div>
+      <div class="hero-sub-line">Création</div>
     </div>
 
+    <p class="hero-desc reveal">
+      Étudiant BUT MMI · Futur étudiant EFAP 2026–2028<br/>
+      Passionné par la com' digitale, le design et la narration de marque.
+    </p>
+
+    <!-- CV VIDEO PLACEHOLDER -->
+    <div class="cv-video-block reveal" id="cv-video">
+      <div class="cv-video-inner">
+        <div class="cv-video-icon">▶</div>
+        <div class="cv-video-text">
+          <span class="cv-soon">Bientôt disponible</span>
+          <strong>Mon CV Vidéo</strong>
+          <span class="cv-desc">60 secondes pour vous convaincre</span>
+        </div>
+        <div class="cv-video-badge">Été 2026</div>
+      </div>
+      <div class="cv-video-progress">
+        <span>En cours de tournage</span>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+      </div>
+    </div>
+
+    <div class="hero-actions reveal">
+      <a href="#projets" class="btn-main">Voir mes projets</a>
+      <a href="ressources/CV TROLONG Owen - Master2026 EFAP .pdf" download class="btn-ghost">Télécharger le CV</a>
+    </div>
+  </div>
+
+  <div class="hero-side reveal">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-placeholder">
+        <span>OT</span>
+      </div>
+      <div class="hero-photo-ring"></div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><strong>EFAP</strong><span>Master 2026</span></div>
+      <div class="hstat"><strong>BUT MMI</strong><span>IUT de Lens</span></div>
+      <div class="hstat"><strong>Lodz</strong><span>Mobilité PL</span></div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ZONES GÉO -->
+<section class="geo-section">
+  <div class="geo-inner">
+    <span class="geo-label">Zones de recherche</span>
+    <div class="geo-chips">
+      <span class="geo-chip preferred">📍 Lille</span>
+      <span class="geo-chip preferred">📍 Arras</span>
+      <span class="geo-chip preferred">📍 Dunkerque</span>
+      <span class="geo-chip other">📍 Lyon</span>
+      <span class="geo-chip other">📍 Valence</span>
+      <span class="geo-chip other">📍 Dijon</span>
+      <span class="geo-chip other">📍 Montpellier</span>
+      <span class="geo-chip open">🌍 Partout en France</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left">
+        <div class="s-tag">À propos</div>
+        <h2 class="s-title">Créer,<br/><em>communiquer,</em><br/>convaincre.</h2>
+        <p class="about-text">Je suis Owen, 21 ans, étudiant en BUT Métiers du Multimédia et de l'Internet à l'IUT de Lens. En septembre 2026, j'intègre l'<strong>EFAP en Master Communication</strong> en alternance pour 2 ans.</p>
+        <p class="about-text">Mon terrain de jeu : la communication digitale, le brand content, le design graphique et la gestion de projet. J'ai eu la chance de mettre tout ça en pratique à la <strong>Ligue HDF de Badminton</strong> et chez <strong>Gottaphish</strong>.</p>
+        <p class="about-text">Ma mobilité internationale en <strong>Pologne (Lodz)</strong> m'a appris à m'adapter, à prendre du recul et à travailler dans des contextes multiculturels.</p>
+        <div class="about-passions">
+          <span>🏃 Athlétisme</span>
+          <span>♟ Échecs</span>
+          <span>🚗 Automobile</span>
+          <span>🎬 Cinéma</span>
+          <span>✈️ Voyages</span>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="skills-block">
+          <div class="skill-cat">
+            <h4>Hard Skills</h4>
+            <div class="skill-tags">
+              <span>Suite Adobe</span>
+              <span>Figma</span>
+              <span>Suite Office</span>
+              <span>Marketing digital</span>
+              <span>Management projet</span>
+              <span>HTML / CSS</span>
+              <span>WordPress</span>
+            </div>
+          </div>
+          <div class="skill-cat">
+            <h4>Soft Skills</h4>
+            <div class="skill-tags soft">
+              <span>Autonome</span>
+              <span>Curieux</span>
+              <span>Créatif</span>
+              <span>Dynamique</span>
+              <span>Déterminé</span>
+              <span>Collaboratif</span>
+            </div>
+          </div>
+          <div class="skill-cat">
+            <h4>Domaines visés</h4>
+            <div class="skill-tags domain">
+              <span>Stratégie digitale</span>
+              <span>Audiovisuel</span>
+              <span>Réseaux sociaux</span>
+              <span>Brand Content</span>
+              <span>UX/UI</span>
+              <span>Gestion de projets</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section class="section projets-section" id="projets">
+  <div class="container">
+    <div class="s-tag">Réalisations</div>
+    <div class="projets-header">
+      <h2 class="s-title">Mes <em>projets</em></h2>
+      <a href="https://linktr.ee" target="_blank" class="btn-ghost small">Portfolio complet ↗</a>
+    </div>
+    <div class="projets-grid" id="projets-grid">
+
+      <article class="projet-card featured">
+        <div class="projet-cat">Communication</div>
+        <div class="projet-year">2025–2026</div>
+        <h3>Identité visuelle & newsletters<br/>Ligue HDF Badminton</h3>
+        <p>Conception d'affiches, visuels promotionnels et newsletters pour les événements régionaux de la Ligue Hauts-de-France de Badminton. Cohérence visuelle et éditoriale sur l'ensemble des supports.</p>
+        <div class="projet-tags">
+          <span>Suite Adobe</span><span>Newsletter</span><span>Motion design</span>
+        </div>
+        <div class="projet-result">
+          <span class="result-icon">✓</span>
+          Communication unifiée sur tous les canaux de la Ligue
+        </div>
+      </article>
+
+      <article class="projet-card">
+        <div class="projet-cat">Développement web</div>
+        <div class="projet-year">2025</div>
+        <h3>Modules cybersécurité<br/>Gottaphish</h3>
+        <p>Développement web et création de modules pédagogiques sur le phishing et la cybersécurité. Apprentissage autonome de nouveaux langages.</p>
+        <div class="projet-tags">
+          <span>Dev web</span><span>Cybersécurité</span><span>Pédagogie</span>
+        </div>
+        <div class="projet-result">
+          <span class="result-icon">✓</span>
+          Montée en compétences rapide & autonomie renforcée
+        </div>
+      </article>
+
+      <article class="projet-card add-project">
+        <div class="add-icon">+</div>
+        <h3>Vos futurs projets ensemble</h3>
+        <p>Je suis disponible dès juillet 2026 pour intégrer votre équipe et contribuer à vos projets de communication.</p>
+        <a href="#contact" class="btn-main small">Me contacter →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS TIMELINE -->
+<section class="section parcours-section" id="parcours">
+  <div class="container">
+    <div class="s-tag">Parcours</div>
+    <h2 class="s-title">Mon <em>chemin</em></h2>
+    <div class="timeline">
+
+      <div class="tl-item future">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2026–2028</div>
+        <div class="tl-card">
+          <span class="tl-badge future-badge">À venir</span>
+          <h4>Master Communication</h4>
+          <strong>EFAP</strong>
+          <p>Stratégie de communication, brand content, marketing digital, gestion de projets réels. En alternance (1 semaine école / 3 semaines entreprise).</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Déc. 2025 – Juil. 2026</div>
+        <div class="tl-card">
+          <h4>Alternant en Communication</h4>
+          <strong>Ligue HDF de Badminton</strong>
+          <p>Visuels, affiches, newsletters, stratégie de communication régionale.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Mar. 2025 - Jui. 2025</div>
+        <div class="tl-card">
+          <h4>Semestre international <i>(4 mois)</i></h4>
+          <strong>Université de Lodz, Pologne</strong>
+          <p>Mobilité internationale, adaptation culturelle, ouverture sur l'Europe.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2025</div>
+        <div class="tl-card">
+          <h4>Stagiaire Développement Web <i>(2 mois)</i></h4>
+          <strong>Gottaphish</strong>
+          <p>Dev web, modules cybersécurité, apprentissage autonome.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2023–2026</div>
+        <div class="tl-card">
+          <h4>BUT MMI</h4>
+          <strong>IUT de Lens</strong>
+          <p>Communication digitale, UX/UI, audiovisuel, développement web, gestion de projet.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="s-tag">Contact</div>
+        <h2 class="s-title">On travaille<br/><em>ensemble ?</em></h2>
+        <p>Je recherche une alternance de 2 ans à partir de <strong>septembre 2026</strong>, sur le rythme 1 semaine école / 3 semaines entreprise.</p>
+        <div class="contact-infos">
+          <a href="mailto:contact.trolong@gmail.com" class="contact-line">
+            <span class="ci-icon">✉</span>
+            contact.trolong@gmail.com
+          </a>
+          <a href="https://owentrolong.fr" target="_blank" class="contact-line">
+            <span class="ci-icon">🌐</span>
+            owentrolong.fr
+          </a>
+          <div class="contact-line">
+            <span class="ci-icon">📍</span>
+            Lille · Arras · Dunkerque · Lyon · Valence · Dijon · Montpellier
+          </div>
+        </div>
+        <div class="contact-social">
+          <a href="https://linktr.ee/owendigital" target="_blank" class="social-btn">Portfolio</a>
+          <a href="ressources/CV TROLONG Owen - Master2026 EFAP .pdf" download class="social-btn">CV PDF</a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <form id="contact-form" class="contact-form" onsubmit="submitForm(event)">
+          <div class="cf-row">
+            <input type="text" name="from_name" placeholder="Votre prénom" required/>
+            <input type="text" name="company" placeholder="Entreprise"/>
+          </div>
+          <input type="email" name="reply_to" placeholder="Email professionnel" required/>
+          <select name="job_type">
+            <option value="">Type de poste</option>
+            <option>Chargé(e) de communication</option>
+            <option>Community Manager</option>
+            <option>Chargé(e) de marketing digital</option>
+            <option>Chef de projet en communication</option>
+            <option>Autre</option>
+          </select>
+          <input type="text" name="location" placeholder="Ville / Région"/>
+          <textarea name="message" placeholder="Décrivez votre besoin en quelques lignes…" rows="4"></textarea>
+          <button type="submit" class="btn-main full">Envoyer ma proposition →</button>
+        </form>
+        <div class="form-ok" id="form-ok" style="display:none">
+          <div class="ok-check">✓</div>
+          <h4>Message envoyé !</h4>
+          <p>Je vous réponds dans les 48h.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="footer-logo">Owen Trolong<span class="dot">.</span></span>
+    <span class="footer-copy">© 2026 · owentrolong.fr · Étudiant EFAP 2026</span>
+    <a href="#hero" class="footer-top">↑ Haut</a>
+  </div>
+</footer>
+
+<script src="portfolio.js"></script>
 </body>
 </html>
