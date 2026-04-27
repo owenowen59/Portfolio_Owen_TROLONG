@@ -493,40 +493,39 @@
 <script>
   // ── FILTRES ──────────────────────────────────────────────────────────────
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards      = document.querySelectorAll('.p-card[data-category]');
-  const countEl    = document.getElementById('count-visible');
-
+  const cards      = document.querySelectorAll('.m-card[data-category]');
+  const countEl   = document.getElementById('count-visible');
+ 
   function updateCount() {
     const visible = [...cards].filter(c => c.style.display !== 'none').length;
     countEl.textContent = visible;
   }
-
+ 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
-
-      cards.forEach(card => {
+ 
+      cards.forEach((card, i) => {
         const cats  = card.dataset.category || '';
-        const isCta = card.classList.contains('p-card-cta');
+        const isCta = card.classList.contains('m-cta');
         const show  = filter === 'all' || cats.includes(filter) || isCta;
-
+ 
         if (show) {
           card.style.display = '';
-          // Re-déclenche l'animation
           card.style.animation = 'none';
           card.offsetHeight; // reflow
-          card.style.animation = 'fadeUp .35s ease both';
+          card.style.animation = `fadeUp .35s ease ${i * 40}ms both`;
         } else {
           card.style.display = 'none';
         }
       });
-
+ 
       updateCount();
     });
   });
-
+ 
   updateCount();
 </script>
 </body>
