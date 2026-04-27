@@ -1,165 +1,530 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/Logo ot.png">
-    <title>Portfolio TROLONG Owen</title>
-    <link rel="stylesheet" href="ressources/style.css">
-    <link rel="stylesheet" href="ressources/style2.css">
-    <script src="ressources/script.js"></script>
-    <script src="ressources/script2.js"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="images/Logo ot.png">
+  <title>Projets – Owen Trolong</title>
+  <meta name="description" content="Tous les projets d'Owen Trolong – communication, design, web, audiovisuel."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="portfolio.css"/>
+  <style>
 
-    
+    /* ── HERO PAGE PROJETS ──────────────────────────────────────────── */
+    .projets-page-hero {
+      padding: calc(var(--nav-h) + 5rem) 0 3rem;
+    }
+    .projets-page-hero .s-title {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      margin-bottom: 1rem;
+    }
+    .projets-page-hero p {
+      color: var(--gris);
+      max-width: 540px;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
 
+    /* ── FILTRES ────────────────────────────────────────────────────── */
+    .filters-bar {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--gris-bd);
+    }
+    .filter-btn {
+      padding: .4rem 1.1rem;
+      border-radius: 100px;
+      border: 1px solid var(--gris-bd);
+      background: transparent;
+      color: var(--gris);
+      font-family: var(--font-corps);
+      font-size: .82rem;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn:hover { border-color: var(--noir); color: var(--noir); }
+    .filter-btn.active {
+      background: var(--noir);
+      color: var(--blanc-pur);
+      border-color: var(--noir);
+      font-weight: 500;
+    }
+
+    /* ── COMPTEUR ───────────────────────────────────────────────────── */
+    .projets-count {
+      font-size: .8rem;
+      color: var(--gris);
+      margin-top: 2rem;
+      margin-bottom: -.5rem;
+      font-family: var(--font-corps);
+      letter-spacing: .04em;
+    }
+    .projets-count span { color: var(--noir); font-weight: 600; }
+
+    /* ── GRILLE ─────────────────────────────────────────────────────── */
+    .all-projets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding: 2rem 0 6rem;
+    }
+
+    /* ── CARTE ──────────────────────────────────────────────────────── */
+    .p-card {
+      background: var(--blanc-pur);
+      border: 1px solid var(--gris-bd);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .p-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.08);
+      border-color: var(--bleu);
+    }
+
+    /* Vedette — pleine largeur + disposition horizontale */
+    .p-card.is-featured {
+      grid-column: span 3;
+      flex-direction: row;
+      background: var(--noir);
+      border-color: var(--noir);
+      color: #fff;
+    }
+    .p-card.is-featured:hover { border-color: var(--bleu); }
+
+    /* ── VISUEL ─────────────────────────────────────────────────────── */
+    .p-card-visual {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: var(--blanc);
+      flex-shrink: 0;
+    }
+    .p-card.is-featured .p-card-visual {
+      aspect-ratio: auto;
+      width: 42%;
+      min-height: 280px;
+    }
+    .p-card-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .4s;
+    }
+    .p-card:hover .p-card-visual img { transform: scale(1.04); }
+    .p-card-visual-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; opacity: .2;
+    }
+
+    /* ── CORPS ──────────────────────────────────────────────────────── */
+    .p-card-body {
+      padding: 1.6rem 1.8rem;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .p-card-meta {
+      display: flex; align-items: center;
+      gap: .7rem; margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .p-card-cat {
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--gris);
+    }
+    .p-card.is-featured .p-card-cat { color: rgba(255,255,255,.45); }
+
+    .p-card-year {
+      font-size: .75rem; color: var(--gris); margin-left: auto;
+    }
+    .p-card.is-featured .p-card-year { color: rgba(255,255,255,.35); }
+
+    .p-card-badge {
+      font-size: .68rem; padding: .2rem .65rem; border-radius: 100px;
+      border: 1px solid var(--bleu); color: var(--bleu);
+      font-weight: 600; background: rgba(0,151,178,.08);
+    }
+
+    .p-card h3 {
+      font-family: var(--font-titre); font-size: 1.1rem;
+      font-weight: 700; line-height: 1.25;
+      margin-bottom: .8rem; color: var(--noir);
+    }
+    .p-card.is-featured h3 { font-size: 1.4rem; color: #fff; }
+
+    .p-card-desc {
+      font-size: .86rem; color: var(--gris);
+      line-height: 1.75; flex: 1; margin-bottom: 1.2rem;
+    }
+    .p-card.is-featured .p-card-desc { color: rgba(255,255,255,.5); }
+
+    .p-card-tags {
+      display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1.1rem;
+    }
+    .p-card-tags span {
+      font-size: .7rem; padding: .18rem .55rem; border-radius: 4px;
+      background: var(--blanc); border: 1px solid var(--gris-bd); color: var(--gris);
+    }
+    .p-card.is-featured .p-card-tags span {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.15);
+      color: rgba(255,255,255,.6);
+    }
+
+    .p-card-result {
+      display: flex; align-items: flex-start; gap: .55rem;
+      font-size: .81rem; color: var(--bleu-dk); margin-top: auto;
+    }
+    .p-card.is-featured .p-card-result { color: var(--bleu); }
+    .p-card-result .result-icon {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--bleu); color: var(--noir);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .6rem; flex-shrink: 0; margin-top: 2px; font-weight: 700;
+    }
+
+    /* ── CARTE CTA ──────────────────────────────────────────────────── */
+    .p-card-cta {
+      background: var(--bleu-pale) !important;
+      border: 2px dashed rgba(0,151,178,.25) !important;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      gap: 1rem; padding: 2rem; min-height: 220px;
+    }
+    .p-card-cta:hover { border-color: var(--bleu) !important; }
+    .p-card-cta .add-icon { font-size: 2.5rem; color: var(--bleu-dk); font-weight: 300; line-height: 1; }
+    .p-card-cta h3 { font-family: var(--font-titre); font-size: 1rem; font-weight: 700; color: var(--noir); }
+    .p-card-cta p { font-size: .84rem; color: var(--gris); }
+
+    /* ── ANIMATION FILTRE ───────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .all-projets-grid { grid-template-columns: 1fr 1fr; }
+      .p-card.is-featured { grid-column: span 2; flex-direction: column; }
+      .p-card.is-featured .p-card-visual { width: 100%; min-height: 200px; aspect-ratio: 16/9; }
+    }
+    @media (max-width: 580px) {
+      .all-projets-grid { grid-template-columns: 1fr; }
+      .p-card.is-featured { grid-column: span 1; }
+    }
+
+    /* Lien actif nav */
+    .nav-links a.active { color: var(--noir); font-weight: 500; }
+
+  </style>
 </head>
 <body>
-<button id="scrollToTopBtn" title="Retour en haut">&#8593;</button>
 
-    <nav class="barnav">
-        <h3>TROLONG Owen</h3>
-        <!--
-        <form>
-            <input id="searchBar" class="recherche" type="search" placeholder="Besoin d'une information.">
-        </form>
-        -->
-        <ul class="navigation">
-            <li>
-                <a href="accueil.html">
-                    <div class="link">
-                        <i class='bx bx-home-alt-2'></i>
-                        <span>Accueil</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="accueil.html#Moi">
-                    <div class="link">
-                        <i class='bx bxs-user-detail'></i>
-                        <span>A propos</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="projets.html" class="active">
-                    <div class="link">
-                        <i class='bx bx-palette'></i>
-                        <span>Projets</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#Contact">
-                    <div class="link">
-                        <i class='bx bxs-contact'></i>
-                        <span>Contact</span>
-                    </div>
-                </a>
-            </li>
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursor-follower"></div>
 
-        </ul>
-    </nav>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">OT<span class="dot">.</span></a>
+  <div class="nav-links">
+    <a href="index.html#about">À propos</a>
+    <a href="projets.html" class="active">Projets</a>
+    <a href="index.html#parcours">Parcours</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <a href="index.html#contact" class="nav-cta">Recruter →</a>
+  <button class="nav-burger" id="burger"><span></span><span></span></button>
+</nav>
 
+<!-- HERO -->
+<section class="projets-page-hero">
+  <div class="container">
+    <div class="s-tag">Réalisations</div>
+    <h1 class="s-title">Mes <em>projets</em></h1>
+    <p>Communication, design graphique, développement web, audiovisuel… Retrouvez l'ensemble de mes réalisations académiques et professionnelles.</p>
 
+    <div class="filters-bar">
+      <button class="filter-btn active" data-filter="all">Tous</button>
+      <button class="filter-btn" data-filter="communication">Communication</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="dev">Développement web</button>
+      <button class="filter-btn" data-filter="audiovisuel">Audiovisuel</button>
+      <button class="filter-btn" data-filter="perso">Personnel</button>
+    </div>
+  </div>
+</section>
 
+<!-- GRILLE -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <p class="projets-count"><span id="count-visible">10</span> projet(s) affiché(s)</p>
+    <div class="all-projets-grid" id="all-projets-grid">
 
-
-
-
-
-
-    <section id="Projets">
-        <h1>Mes Projets</h1>
-        <button id="univ">Réalisations Académiques</button>
-        <button id="perso">Réalisations Personnelles</button>
-        <ul id="creauniv" class="rprojets active">
-            <li data-title="Maquette Figma Vagabonda" onclick="showModal('projet9')">
-                <img src="images/Logovagabonda.jpg" 
-                sizes="(max-width: 768px) 50vw, 33vw"
-                alt="Projet" /></li>
-            <li data-title="Maquette Figma IronWay" onclick="showModal('projet10')">
-                <img src="images/banniereironway.jpg" 
-                sizes="(max-width: 768px) 50vw, 33vw"
-                alt="Projet" /></li>
-            <li data-title="Exercice HTML/CSS 'Yakapartir'" onclick="showModal('projet11')">
-                <img src="images/Couverturewebhtmlcss.jpeg" 
-                sizes="(max-width: 768px) 50vw, 33vw"
-                alt="Projet" /></li>
-            <li data-title="Mockup Maison édition" onclick="showModal('projet1')"><img src="images/Mockup 1ere couverture livre sensorielle.png" alt="Image projet"></li>
-            <li data-title="Mystère façon hitchicock" onclick="showModal('projet2')"><img src="images/TROLONG_Owen_MYSTÈRE version2.jpg" alt="Image projet"></li>
-            <li data-title="Miroir Musée d'art Moderne (Paris)" onclick="showModal('projet3')"><img src="images/TROLONG_Owen_2_modifiée.jpg" alt="Image projet"></li>
-            <li data-title="Logo Association" onclick="showModal('projet4')"><img src="images/Logo 2.png" alt="Image projet"></li>
-            
-        </ul>
-        <ul id="creaperso" class="rprojets">
-            <li data-title="Tournoi d'Échecs départemental féminin 2025" onclick="showModal('projet12')"><img src="images/Echecsdepartementalfeminin.jpg" alt="Image projet"></li>
-
-
-            <li data-title="Tournoi d'Échecs 2024" onclick="showModal('projet5')"><img src="images/Affiche de tournoi.jpg" alt="Image projet"></li>
-            <li data-title="Échecs, Stage 2024" onclick="showModal('projet6')"><img src="images/Affiche Stage.png" alt="Image projet"></li>
-            <li data-title="2024, Pendaison Échecs " onclick="showModal('projet7')"><img src="images/Pendaison.jpg" alt="Image projet"></li>
-            <li data-title="Création du logo personnel" onclick="showModal('projet8')"><img src="images/Logo ot.png" alt="Image projet"></li>
-        </ul>
-        <div id="projectModal" class="modal" style="display:none;">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2 id="modalTitle">Titre du Projet</h2>
-                <img id="modalImage" src="#" alt="Image du projet">
-                <p id="modalDescription">Description du projet...</p>
-                <!--<a href="#" id="modalLink" target="_blank">Voir le projet</a>-->
-            </div>
+      <!-- ★ VEDETTE — Ligue HDF Badminton -->
+      <article class="p-card is-featured reveal" data-category="communication">
+        <div class="p-card-visual">
+          <img src="images/Echecsdepartementalfeminin.jpg" alt="Ligue HDF Badminton"
+               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>🏸</div>'"/>
         </div>
-    </section>
-
-    
-
-
-
-
-
-
-
-
-
-
-    <footer id="Contact">
-        <h1>Contactez-Moi</h1>
-
-        <div class="footer-grid">
-            <div class="footer-col">
-            <button onclick="window.location.href='CV - TROLONG Owen.pdf';" class="button-link">
-                📄 Voir mon CV Papier
-            </button>
-            </div>
-
-            <div class="footer-col">
-                <ul>
-                    <li>
-                        <a href="mailto:owen.trolong@gmail.com">
-                        <i class='bx bxl-gmail'></i> owen.trolong@gmail.com
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/owentrolong" target="_blank">
-                        <i class='bx bxl-linkedin-square'></i> @Owen Trolong
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.github.com/owenowen59" target="_blank" class="github-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="svg-icon">
-                            <path d="M12 .5C5.4.5 0 6 0 12.4c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 2 3 1.4 3.7 1.1.1-.8.4-1.4.7-1.7-2.6-.3-5.4-1.3-5.4-5.7 0-1.3.5-2.3 1.2-3.2 0-.3-.5-1.4.1-3 0 0 1-.3 3.2 1.2.9-.3 1.8-.5 2.7-.5s1.9.2 2.7.5c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.1 2.7.1 3 .8.9 1.2 1.9 1.2 3.2 0 4.5-2.8 5.4-5.4 5.7.5.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6C20.6 22.2 24 17.7 24 12.4 24 6 18.6.5 12 .5z"/>
-                        </svg>
-                        owenowen59
-                        </a>
-                    </li>
-                    <li><i class='bx bx-map'></i> Lille, France</li>
-                </ul>
-            </div>
+        <div class="p-card-body">
+          <div class="p-card-meta">
+            <span class="p-card-cat">Communication</span>
+            <span class="p-card-badge">★ Alternance</span>
+            <span class="p-card-year">2025–2026</span>
+          </div>
+          <h3>Identité visuelle & communication<br/>Ligue HDF Badminton</h3>
+          <p class="p-card-desc">En alternance à la Ligue Hauts-de-France de Badminton, j'ai pris en charge l'ensemble de la communication visuelle : affiches d'événements, newsletters, visuels promotionnels pour les tournois régionaux. Travail de cohérence éditoriale et graphique sur tous les supports.</p>
+          <div class="p-card-tags">
+            <span>Suite Adobe</span><span>Illustrator</span><span>Photoshop</span><span>Newsletter</span><span>Motion design</span><span>Réseaux sociaux</span>
+          </div>
+          <div class="p-card-result">
+            <span class="result-icon">✓</span>
+            Communication unifiée sur tous les canaux · Affiches diffusées à l'échelle régionale
+          </div>
         </div>
+      </article>
 
-    <p><i class='bx bx-copyright'></i> 2025 TROLONG Owen. Tous droits réservés.</p>
-    </footer>
+      <!-- Gottaphish -->
+      <article class="p-card reveal" data-category="dev">
+        <div class="p-card-visual">
+          <img src="images/Couverturewebhtmlcss.jpeg" alt="Gottaphish"
+               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>💻</div>'"/>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-meta">
+            <span class="p-card-cat">Développement web</span>
+            <span class="p-card-year">2025</span>
+          </div>
+          <h3>Modules cybersécurité<br/>Gottaphish</h3>
+          <p class="p-card-desc">Stage de développement web axé sur la création de modules pédagogiques autour du phishing et de la sécurité informatique. Montée en compétences autonome sur de nouveaux langages.</p>
+          <div class="p-card-tags">
+            <span>HTML / CSS</span><span>JavaScript</span><span>Cybersécurité</span><span>UX pédagogique</span>
+          </div>
+          <div class="p-card-result">
+            <span class="result-icon">✓</span>
+            Montée en compétences rapide · Autonomie renforcée
+          </div>
+        </div>
+      </article>
+
+      <!-- Affiche de tournoi -->
+      <article class="p-card reveal" data-category="design communication">
+        <div class="p-card-visual">
+          <img src="images/Affiche de tournoi.jpg" alt="Affiche Tournoi"
+               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>🎨</div>'"/>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-meta">
+            <span class="p-card-cat">Design · Communication</span>
+            <span class="p-card-year">2025</span>
+          </div>
+          <h3>Affiche de tournoi<br/>Badminton HDF</h3>
+          <p class="p-card-desc">Conception d'affiches promotionnelles pour les tournois régionaux. Respect de la charte graphique de la Ligue tout en apportant une touche dynamique pour les supports print et digital.</p>
+          <div class="p-card-tags">
+            <span>Illustrator</span><span>InDesign</span><span>Print</span><span>Digital</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Affiche Stage -->
+      <article class="p-card reveal" data-category="design communication">
+        <div class="p-card-visual">
+          <img src="images/Affiche Stage.png" alt="Affiche Stage"
+               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>📌</div>'"/>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-meta">
+            <span class="p-card-cat">Design · Communication</span>
+            <span class="p-card-year">2025</span>
+          </div>
+          <h3>Affiche de stage<br/>Communication sportive</h3>
+          <p class="p-card-desc">Création d'une affiche pour un stage sportif. Adaptation aux codes visuels du sport amateur et mise en valeur des informations clés.</p>
+          <div class="p-card-tags">
+            <span>Photoshop</span><span>Illustrator</span><span>Com' événementielle</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Logo Vagabonda -->
+      <article class="p-card reveal" data-category="design">
+        <div class="p-card-visual">
+          <img src="images/Logovagabonda.jpg" alt="Logo Vagabonda"
+               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>✏️</div>'"/>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-meta">
+            <span class="p-card-cat">Design · Branding</span>
+            <span class="p-card-year">Académique</span>
+          </div>
+          <h3>Logo Vagabonda</h3>
+          <p class="p-card-desc">Identité visuelle complète pour la marque fictive Vagabonda. Univers du voyage et de l'aventure, travail sur la symbolique et la typographie.</p>
+          <div class="p-card-tags">
+            <span>Illustrator</span><span>Brand identity</span><span>Typographie</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bannière Ironway -->
+      <article class="p-card reveal" data-category="design">
+        <div class="p-card-visual">
+          <img src="images/banniereironway.jpg" alt="Ironway"
+               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>🔩</div>'"/>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-meta">
+            <span class="p-card-cat">Design</span>
+            <span class="p-card-year">Académique</span>
+          </div>
+          <h3>Bannière Ironway</h3>
+          <p class="p-card-desc">Bannière promotionnelle pour la marque fictive Ironway, univers industriel. Travail sur la hiérarchie visuelle et l'impact graphique immédiat.</p>
+          <div class="p-card-tags">
+            <span>Photoshop</span><span>Brand design</span><span>Bannière digitale</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Livre sensorielle -->
+      <article class="p-card reveal" data-category="design">
+        <div class="p-card-visual">
+          <img src="images/Mockup 1ere couverture livre sensorielle.png" alt="Livre sensorielle"
+               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>📖</div>'"/>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-meta">
+            <span class="p-card-cat">Design éditorial</span>
+            <span class="p-card-year">Académique</span>
+          </div>
+          <h3>Couverture livre sensorielle</h3>
+          <p class="p-card-desc">Design d'une couverture de livre sensorielle. Textures, typographie et composition pour une expérience visuelle immersive.</p>
+          <div class="p-card-tags">
+            <span>InDesign</span><span>Photoshop</span><span>Design éditorial</span><span>Mockup</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Photo Mystère -->
+      <article class="p-card reveal" data-category="audiovisuel">
+        <div class="p-card-visual">
+          <img src="images/TROLONG_Owen_MYSTÈRE version2.jpg" alt="Photographie Mystère"
+               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>📷</div>'"/>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-meta">
+            <span class="p-card-cat">Audiovisuel · Photographie</span>
+            <span class="p-card-year">Académique</span>
+          </div>
+          <h3>Photographie – Mystère</h3>
+          <p class="p-card-desc">Série photographique autour de la thématique du mystère. Lumière, mise en scène et postproduction pour créer une atmosphère singulière.</p>
+          <div class="p-card-tags">
+            <span>Photographie</span><span>Lightroom</span><span>Photoshop</span><span>Mise en scène</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pendaison -->
+      <article class="p-card reveal" data-category="audiovisuel perso">
+        <div class="p-card-visual">
+          <img src="images/Pendaison.jpg" alt="Pendaison"
+               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>🎭</div>'"/>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-meta">
+            <span class="p-card-cat">Audiovisuel · Perso</span>
+            <span class="p-card-year">Personnel</span>
+          </div>
+          <h3>Pendaison – Création artistique</h3>
+          <p class="p-card-desc">Projet photographique personnel à fort caractère narratif. Exploration de l'image comme vecteur d'émotion et de storytelling visuel.</p>
+          <div class="p-card-tags">
+            <span>Photographie</span><span>Direction artistique</span><span>Narration visuelle</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Logo OT -->
+      <article class="p-card reveal" data-category="design perso">
+        <div class="p-card-visual">
+          <img src="images/Logo ot.png" alt="Logo OT"
+               onerror="this.parentElement.innerHTML='<div class=&quot;p-card-visual-placeholder&quot;>🔖</div>'"/>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-meta">
+            <span class="p-card-cat">Branding personnel</span>
+            <span class="p-card-year">2025</span>
+          </div>
+          <h3>Logo Owen Trolong<br/>Identité personnelle</h3>
+          <p class="p-card-desc">Conception de mon identité visuelle personnelle utilisée sur tous mes supports : portfolio, réseaux sociaux, CV. Design épuré et mémorable.</p>
+          <div class="p-card-tags">
+            <span>Illustrator</span><span>Branding</span><span>Identité personnelle</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CTA -->
+      <article class="p-card p-card-cta reveal" data-category="all">
+        <div class="add-icon">+</div>
+        <h3>Vos futurs projets ensemble</h3>
+        <p>Disponible dès juillet 2026 pour contribuer à vos projets de communication.</p>
+        <a href="index.html#contact" class="btn-main small">Me contacter →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="footer-logo">Owen Trolong<span class="dot">.</span></span>
+    <span class="footer-copy">© 2026 · owentrolong.fr · Étudiant EFAP 2026</span>
+    <a href="#" class="footer-top">↑ Haut</a>
+  </div>
+</footer>
+
+<script src="portfolio.js"></script>
+<script>
+  // ── FILTRES ──────────────────────────────────────────────────────────────
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards      = document.querySelectorAll('.p-card[data-category]');
+  const countEl    = document.getElementById('count-visible');
+
+  function updateCount() {
+    const visible = [...cards].filter(c => c.style.display !== 'none').length;
+    countEl.textContent = visible;
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        const cats  = card.dataset.category || '';
+        const isCta = card.classList.contains('p-card-cta');
+        const show  = filter === 'all' || cats.includes(filter) || isCta;
+
+        if (show) {
+          card.style.display = '';
+          // Re-déclenche l'animation
+          card.style.animation = 'none';
+          card.offsetHeight; // reflow
+          card.style.animation = 'fadeUp .35s ease both';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      updateCount();
+    });
+  });
+
+  updateCount();
+</script>
 </body>
 </html>
