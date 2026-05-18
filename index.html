@@ -194,55 +194,111 @@
       <h2 class="s-title">Mes <em>projets</em></h2>
       <a href="projets.html" class="btn-ghost small">Voir tout ↗</a>
     </div>
-    <div class="projets-grid" id="projets-grid">
 
-      <!-- PROJET MIS EN AVANT 1 -->
-      <article class="projet-card featured">
-        <div class="projet-cat">Communication</div>
-        <div class="projet-year">2025–2026</div>
-        <h3>Identité visuelle & newsletters<br/>Ligue HDF Badminton</h3>
-        <p>Conception d'affiches, visuels promotionnels et newsletters pour les événements régionaux de la Ligue Hauts-de-France de Badminton. Cohérence visuelle et éditoriale sur l'ensemble des supports.</p>
-        <div class="projet-tags">
-          <span>Suite Adobe</span><span>Newsletter</span><span>Motion design</span>
+    <div class="phg-grid">
+
+      <!-- ★ VEDETTE — IronWay (pleine largeur) -->
+      <article class="phg-card phg-hero reveal">
+        <div class="phg-visual">
+          <img
+            src="https://img.youtube.com/vi/UW50FyJ668c/maxresdefault.jpg"
+            alt="IronWay – vidéo de lancement"
+            class="phg-img"
+            onerror="this.src='images/banniereironway.jpg'"/>
+          <a href="https://www.youtube.com/shorts/UW50FyJ668c"
+             target="_blank" rel="noopener"
+             class="phg-play-overlay"
+             aria-label="Voir la vidéo IronWay sur YouTube">
+            <div class="phg-play-btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M5 3L15 9L5 15V3Z" fill="white"/>
+              </svg>
+            </div>
+          </a>
+          <span class="phg-badge phg-badge-acad">Projet académique · BUT MMI</span>
+          <span class="phg-duration">▶ Short · 0:25</span>
         </div>
-        <div class="projet-result">
-          <span class="result-icon">✓</span>
-          Communication unifiée sur tous les canaux de la Ligue
+        <div class="phg-body">
+          <div class="phg-exp-row">
+            <span class="phg-exp-dot" style="background:#888"></span>
+            <span class="phg-exp-name">IUT de Lens</span>
+            <span class="phg-exp-role">2024–2025</span>
+          </div>
+          <div class="phg-cat">Audiovisuel · Branding · Événementiel</div>
+          <h3 class="phg-title">Lancement IronWay —<br/><em>Identité, vidéo & stratégie de marque</em></h3>
+          <p class="phg-desc">En 2 semaines, conception d'un événement sportif fictif de A à Z : identité visuelle, charte graphique et capsule vidéo de lancement. IronWay — cousin de l'IronMan — pensé autour de la passion du sport d'endurance.</p>
+          <div class="projet-tags">
+            <span>Photoshop</span><span>Premiere Pro</span><span>Brand design</span><span>Motion</span><span>Stratégie</span>
+          </div>
+          <div class="projet-result">
+            <span class="result-icon">✓</span>
+            Identité complète déployée · Vidéo diffusée sur YouTube
+          </div>
         </div>
       </article>
 
-      <!-- PROJET MIS EN AVANT 2 -->
-      <article class="projet-card">
-        <div class="projet-cat">Développement web</div>
-        <div class="projet-year">2025</div>
-        <h3>Modules cybersécurité<br/>Gottaphish</h3>
-        <p>Développement web et création de modules pédagogiques sur le phishing et la cybersécurité. Apprentissage autonome de nouveaux langages.</p>
-        <div class="projet-tags">
-          <span>Dev web</span><span>Cybersécurité</span><span>Pédagogie</span>
+      <!-- Ligue HDF — Alternance -->
+      <article class="phg-card reveal">
+        <div class="phg-visual phg-visual-sm">
+          <img
+            src="images/Affiche Championnat régional jeunes 2026.jpg"
+            alt="Ligue HDF Badminton – affiche championnat"
+            class="phg-img"
+            onerror="this.parentElement.style.background='#1a2a3a'"/>
+          <span class="phg-badge phg-badge-alt">★ Alternance</span>
         </div>
-        <div class="projet-result">
-          <span class="result-icon">✓</span>
-          Montée en compétences rapide & autonomie renforcée
+        <div class="phg-body phg-body-sm">
+          <div class="phg-exp-row">
+            <span class="phg-exp-dot" style="background:#0097b2"></span>
+            <span class="phg-exp-name">Ligue HDF Badminton</span>
+            <span class="phg-exp-role">· Alternant communication</span>
+          </div>
+          <div class="phg-cat">Communication · Design graphique</div>
+          <h3 class="phg-title-sm">Identité visuelle &<br/>newsletters régionales</h3>
+          <p class="phg-desc-sm">Affiches d'événements, newsletters et visuels promotionnels pour les tournois Hauts-de-France. Cohérence éditoriale sur tous les supports print et digital.</p>
+          <div class="projet-tags">
+            <span>Illustrator</span><span>InDesign</span><span>Newsletter</span><span>Photoshop</span>
+          </div>
+          <div class="projet-result">
+            <span class="result-icon">✓</span>
+            Communication unifiée sur tous les canaux de la Ligue
+          </div>
         </div>
       </article>
 
-      <!-- CTA vers page projets -->
-      <article class="projet-card add-project">
-        <div class="add-icon">→</div>
-        <h3>Tous mes projets</h3>
-        <p>Design graphique, audiovisuel, branding, web… Retrouvez l'ensemble de mes réalisations sur la page dédiée.</p>
-        <a href="projets.html" class="btn-main small">Voir tous les projets →</a>
+      <!-- Gottaphish — Stage -->
+      <article class="phg-card reveal">
+        <div class="phg-visual phg-visual-sm">
+          <img
+            src="images/Couverturewebhtmlcss.jpeg"
+            alt="Gottaphish – modules cybersécurité"
+            class="phg-img"
+            onerror="this.parentElement.style.background='#0f1117'"/>
+          <span class="phg-badge phg-badge-stage">Stage · 2 mois</span>
+        </div>
+        <div class="phg-body phg-body-sm">
+          <div class="phg-exp-row">
+            <span class="phg-exp-dot" style="background:#534AB7"></span>
+            <span class="phg-exp-name">Gottaphish</span>
+            <span class="phg-exp-role">· Stagiaire dev web</span>
+          </div>
+          <div class="phg-cat">Développement web · Cybersécurité</div>
+          <h3 class="phg-title-sm">Modules pédagogiques<br/>anti-phishing</h3>
+          <p class="phg-desc-sm">Développement de modules interactifs de sensibilisation. Montée en compétences autonome sur de nouveaux langages et frameworks, focus UX pédagogique.</p>
+          <div class="projet-tags">
+            <span>HTML/CSS</span><span>JavaScript</span><span>UX pédagogique</span>
+          </div>
+          <div class="projet-result">
+            <span class="result-icon">✓</span>
+            Livrables déployés · Autonomie renforcée
+          </div>
+        </div>
       </article>
 
     </div>
 
-    <!-- NOTE bas de section -->
-    <div style="text-align:center; margin-top:2rem;">
-      <a href="projets.html" style="font-family:'DM Sans',sans-serif; font-size:.88rem; color:#888; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.2); padding-bottom:2px; transition:color .2s, border-color .2s;"
-         onmouseover="this.style.color='#fff';this.style.borderColor='#fff'"
-         onmouseout="this.style.color='#888';this.style.borderColor='rgba(255,255,255,.2)'">
-        Voir les 10+ projets sur la page dédiée →
-      </a>
+    <div class="phg-footer">
+      <a href="projets.html" class="btn-ghost">Voir les 10+ projets →</a>
     </div>
   </div>
 </section>
