@@ -422,6 +422,70 @@
       .modal-img-col img { padding: .8rem; }
       .modal-content-col { padding: 1.4rem 1.2rem; }
     }
+
+
+
+    /* ── CARTE VIDÉO ────────────────────────────────────────────────── */
+    .m-card-video-thumb { position: relative; }
+
+    .m-card-play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.42);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      opacity: 0;
+      transition: opacity .22s;
+    }
+    .m-card:hover .m-card-play-overlay { opacity: 1; }
+
+    .m-card-play-btn {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.75);
+      background: rgba(255,255,255,.12);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .2s, background .2s;
+    }
+    .m-card:hover .m-card-play-btn {
+      transform: scale(1.1);
+      background: rgba(255,255,255,.22);
+    }
+
+    .m-card-play-label {
+      font-size: .72rem;
+      color: rgba(255,255,255,.9);
+      font-family: var(--font-corps);
+      letter-spacing: .04em;
+    }
+
+    .m-card-video-badge {
+      position: absolute;
+      bottom: 8px; right: 8px;
+      background: rgba(0,0,0,.72);
+      color: #fff;
+      font-size: .65rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-corps);
+    }
+
+    /* ── MODALE VIDÉO ───────────────────────────────────────────────── */
+    .modal-video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9/16;
+      max-height: 420px;
+      background: #000;
+    }
+    .modal-video-wrap iframe {
+      position: absolute;
+      inset: 0; width: 100%; height: 100%;
+      border: none;
+    }
   </style>
 </head>
 <body>
@@ -480,7 +544,7 @@
             <span class="m-card-badge">★ Alternance</span>
             <span class="m-card-year">2025–2026</span>
           </div>
-          <h3>Identité visuelle & communication<br/>Ligue HDF Badminton</h3>
+          <h3>Affiche Championnat régional Jeunes 2026<br/>Ligue HDF Badminton</h3>
           <p class="m-card-desc">En alternance à la Ligue Hauts-de-France de Badminton, j'ai pris en charge l'ensemble de la communication visuelle : affiches d'événements, newsletters, visuels promotionnels pour les tournois régionaux.</p>
           <div class="m-card-tags">
             <span>Suite Adobe</span><span>Illustrator</span><span>Photoshop</span><span>Newsletter</span><span>Motion design</span>
@@ -563,7 +627,40 @@
           </div>
         </div>
       </article>
+      <!-- Ironway — carte vidéo -->
+      <article class="m-card reveal is-clickable" 
+        data-category="design audiovisuel" 
+        data-desc="Pendant 2 semaines, nous avons conçu un événement fictif sous le thème du sport. En groupe de 6 personnes, nous avons créé IronWay (cousin de l'IronMan), sa plus value, plus sur la passion de ce sport."
+        data-link="https://www.youtube.com/shorts/UW50FyJ668c"
+        data-video="https://www.youtube.com/embed/UW50FyJ668c?autoplay=1&rel=0">
+        
+        <div class="m-card-visual m-card-video-thumb">
+          <img class="m-card-img" 
+              src="https://img.youtube.com/vi/UW50FyJ668c/maxresdefault.jpg" 
+              alt="IronWay – vidéo de lancement"
+              onerror="this.src='images/banniereironway.jpg'"/>
+          <div class="m-card-play-overlay">
+            <div class="m-card-play-btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M5 3L15 9L5 15V3Z" fill="white"/>
+              </svg>
+            </div>
+            <span class="m-card-play-label">Voir la vidéo</span>
+          </div>
+          <span class="m-card-video-badge">▶ Short · 0:25</span>
+        </div>
 
+        <div class="m-card-body">
+          <div class="m-card-meta">
+            <span class="m-card-cat">Design · Audiovisuel</span>
+            <span class="m-card-year">Académique</span>
+          </div>
+          <h3>Lancement IronWay</h3>
+          <div class="m-card-tags">
+            <span>Photoshop</span><span>Brand design</span><span>Vidéo</span>
+          </div>
+        </div>
+      </article>
       <!-- Bannière Ironway -->
       <article class="m-card reveal is-clickable" data-category="design" data-desc="Pendant 2 semaines, nous avons conçu un événement fictif sous le thème du sport. En groupe de 6 personnes, nous avons créé IronWay (cousin de l'IronMan), sa plus value, plus sur la passion de ce sport." data-link="https://www.youtube.com/@ironway2025">
         <div class="m-card-visual">

@@ -97,3 +97,23 @@ function submitForm(e) {
       alert("Une erreur est survenue, réessayez plus tard.");
     });
 }
+
+
+// Vidéo dans la modale
+const videoUrl = card.dataset.video || '';
+const imgCol   = document.querySelector('.modal-img-col');
+
+if (videoUrl) {
+  imgCol.innerHTML = `
+    <div class="modal-video-wrap">
+      <iframe src="${videoUrl}" 
+        title="Vidéo projet"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>`;
+} else {
+  imgCol.innerHTML = `<img id="modal-img" src="${img ? img.src : ''}" alt="${img ? img.alt : ''}"/>`;
+  // on réassigne les références
+  modalImg = document.getElementById('modal-img');
+}
